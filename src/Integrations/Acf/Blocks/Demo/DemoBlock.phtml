@@ -1,0 +1,46 @@
+<?php
+/**
+ * @var int $post_id
+ * @var bool $is_preview
+ */
+
+
+use CG\ThemeOptions;
+
+$organization = ThemeOptions::get_github_organization();
+$repo_name = get_field("ACA630A4083F4367B7D84CE36F55416D", $post_id);
+
+$branch = get_field('5C38ABBE778245AF9F88A0D9697D7D99');
+$min_height = get_field('07B445698C8744A5983948511BB2B441');
+
+$source = "https://github.com/{$organization}/{$repo_name}/tree/{$branch}";
+$demo_url = "https://stackblitz.com/github/{$organization}/{$repo_name}/tree/{$branch}";
+$iframe_src = "https://{$branch}--{$repo_name}-{$organization}.netlify.app";
+
+?>
+<div class="code-sandbox">
+    <?php if ($is_preview) : ?>
+        <img src="https://via.placeholder.com/500x150?text=IFRAME"
+             style="display: block; margin: auto; width: 100%;"
+             alt="placeholder">
+    <?php else: ?>
+        <iframe src="<?= $iframe_src ?>"
+                sandbox="allow-scripts allow-same-origin allow-modals"
+                height="<?= $min_height ?>"
+                loading="lazy"></iframe>
+    <?php endif ?>
+
+    <ul>
+        <li>
+            <a href="<?= $source ?>" target="_blank">Kod źródłowy</a>
+        </li>
+        <li class="spacer"></li>
+        <li>
+            <a href="<?= $iframe_src ?>" target="_blank">Nowa zakładka</a>
+        </li>
+        <li class="spacer"></li>
+        <li>
+            <a href="<?= $demo_url ?>" target="_blank">StackBlitz</a>
+        </li>
+    </ul>
+</div>

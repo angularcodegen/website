@@ -1,0 +1,23 @@
+{
+  "name": "codegen/blog",
+  "type": "theme",
+  "authors": [
+    {
+      "name": "Adrian Bury",
+      "email": "adrian.jakub.bury@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "CG\\": "src/"
+    }
+  },
+  "require": {
+    "symfony/var-dumper": "^6.0",
+    "scrivo/highlight.php": "v9.18.1.9"
+  }
+  ,
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  }
+}

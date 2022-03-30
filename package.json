@@ -1,0 +1,16 @@
+{
+  "name": "codegen",
+  "version": "0.0.0",
+  "description": "Custom theme for blog",
+  "main": "index.php",
+  "scripts": {
+    "css": "sass ./styles/index.scss ./style.css",
+    "css::watch": "sass --watch ./styles/index.scss ./style.css"
+  },
+  "author": "Adrian Bury",
+  "private": "true",
+  "dependencies": {},
+  "devDependencies": {
+    "sass": "^1.46.0"
+  }
+}

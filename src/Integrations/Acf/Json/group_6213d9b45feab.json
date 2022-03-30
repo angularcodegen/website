@@ -1,0 +1,44 @@
+{
+    "key": "group_6213d9b45feab",
+    "title": "Ustawienia szablonu",
+    "fields": [
+        {
+            "key": "field_6213d9bc35762",
+            "label": "Organizacja",
+            "name": "6155A9ADF09E406BBB3AA0611D48106C",
+            "type": "text",
+            "instructions": "Nazwa organizacji na portalu GitHub",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1645468445
+}

@@ -1,0 +1,27 @@
+<?php
+
+use CG\Integrations\Acf\Blocks\CodePreview\CodePreviewUtils;
+
+$language_name = get_field('593D265269114F70B5E116DB58AF9BE5');
+$code = get_field('8E9300D01F9547E781F8F7DE5DCA0742');
+
+$show_header = get_field('7E4C8F667ABD4C4C801D703E7F95C5B8');
+$header_data = get_field('BE6B8012D8D84DC2A1E0B7488560F547');
+$type = $header_data['91BA2AE9587D44B3B2678890B254A752'] ?? '';
+$info = $header_data['CC4A21F9F0AB429A833837B499B095F1'] ?? '';
+
+
+$parsed = CodePreviewUtils::highlight($language_name, $code);
+$parsed = CodePreviewUtils::highlight_lines($parsed);
+
+?>
+
+<div class="code-preview <?= $show_header ? 'with-header' : '' ?> <?= $type ?>">
+    <?php if ($show_header): ?>
+        <header><?= $info ?></header>
+    <?php endif; ?>
+
+    <pre><code class="hljs <?= $language_name ?>"><?= $parsed ?></code></pre>
+
+</div>
+

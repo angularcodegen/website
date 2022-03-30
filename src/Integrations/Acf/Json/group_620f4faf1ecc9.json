@@ -1,0 +1,50 @@
+{
+    "key": "group_620f4faf1ecc9",
+    "title": "Blok - alert",
+    "fields": [
+        {
+            "key": "field_620f4fc3b747c",
+            "label": "Typ",
+            "name": "7682E2CF6AB74F3092DF3CCB770ED99F",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "helpful": "Pomocny",
+                "important": "Ważny",
+                "critical": "Krytyczny"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/alert"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1646583118
+}

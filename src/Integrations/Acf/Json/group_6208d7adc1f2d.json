@@ -1,0 +1,65 @@
+{
+    "key": "group_6208d7adc1f2d",
+    "title": "Demo",
+    "fields": [
+        {
+            "key": "field_6208ddd0e2758",
+            "label": "Branch w repozytium",
+            "name": "5C38ABBE778245AF9F88A0D9697D7D99",
+            "type": "text",
+            "instructions": "Podaj nazwę brancha, który zostanie użyty jako demo",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6223719fe3dae",
+            "label": "Minimalna wysokość",
+            "name": "07B445698C8744A5983948511BB2B441",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 200,
+            "placeholder": "",
+            "prepend": "",
+            "append": "px",
+            "min": 0,
+            "max": "",
+            "step": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/demo"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1646497309
+}

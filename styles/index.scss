@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+/*
+Theme Name: CodeGen
+Theme URI: https://blog.adrianbury.pl
+Author: Adrian Bury
+Author URI: https://adrianbury.pl
+Description: Custom theme for blog
+Requires at least: 5.3
+Requires PHP: 8.0
+Version: 0.0.0
+Text Domain: cg
+*/
+
+@import "normalize";
+@import "global";
+
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  max-width: 1300px;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+
+}
+
+
+.bi {
+  width: 1rem;
+  height: 1rem;
+  vertical-align: -0.125rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#menu_gorne {
+  ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+
+  li {
+  }
+}
