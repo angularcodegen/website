@@ -10,15 +10,19 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() . '/style.css'; ?>">
     <?php wp_head(); ?>
 
-    <?php if(get_site_url() === 'https://codegen.studio' && is_user_logged_in() === false): ?>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R3P89JXDDQ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <?php if (get_site_url() === 'https://codegen.studio' && is_user_logged_in() === false): ?>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-R3P89JXDDQ"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-        gtag('config', 'G-R3P89JXDDQ');
-    </script>
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+
+            gtag('config', 'G-R3P89JXDDQ');
+        </script>
     <?php endif; ?>
 
     <title>How To Implement Debounce And Throttle In JavaScript</title>
@@ -70,8 +74,12 @@
     }
 </style>
 
-<div id="jumbo">
+<div id="jumbo" class="container">
     <?php if (is_singular()): ?>
         <h1><?php the_title() ?></h1>
+    <?php endif; ?>
+
+    <?php if (is_search() || is_home()): ?>
+        <?= get_search_form() ?>
     <?php endif; ?>
 </div>

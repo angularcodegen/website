@@ -2,12 +2,13 @@
 
 get_header(); ?>
 
-    <main class="container" style="display: flex; flex-direction: column; gap: 4rem">
+    <div class="container">
+        <?php if (have_posts()) : ?>
+            <main style="display: flex; flex-direction: column; gap: 4rem">
+                <?php
+                while (have_posts()) :the_post(); ?>
 
-        <?php if (have_posts()) :
-            while (have_posts()) :the_post(); ?>
-
-                <article id="<?php the_ID(); ?>>">
+                    <article id="<?php the_ID(); ?>>" <?php post_class() ?>>
 
                 <span type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -18,20 +19,20 @@ get_header(); ?>
                     <?php echo get_the_date(); ?>
                 </span>
 
-                    <h4 style="font-size: 1.5rem; margin: 0">
-                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                    </h4>
+                        <h4 style="font-size: 1.5rem; margin: 0">
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        </h4>
 
 
-                    <?php the_excerpt(); ?>
+                        <?php the_excerpt(); ?>
 
-                    <p>
-                        <a href="<?php the_permalink(); ?>">Czytaj więcej</a>
-                    </p>
-                </article>
+                        <p>
+                            <a href="<?php the_permalink(); ?>">Czytaj więcej</a>
+                        </p>
+                    </article>
 
-            <?php endwhile; ?>
-
+                <?php endwhile; ?>
+            </main>
             <?php
             $prev = get_previous_posts_link();
             $next = get_next_posts_link();
@@ -43,9 +44,24 @@ get_header(); ?>
                 echo $next;
                 ?>
             </div>
-        <?php endif; ?>
+        <?php else: ?>
+            <p>
+                <?= __('Podana fraza', 'cg') ?>
+                - <em style="font-weight: bold"><?= get_search_query(false) ?></em> -
+                <?= __('nie została odnaleziona', 'cg') ?>.
+            </p>
 
-    </main>
+            <p><?= __('Podpowiedzi', 'cg') ?>:</p>
+
+            <ul>
+                <li><?= __('Sprawdź, czy wszystkie słowa zostały poprawnie napisane', 'cg') ?>.</li>
+                <li><?= __('Spróbuj użyć innych słów kluczowych', 'cg') ?>.</li>
+                <li><?= __('Spróbuj użyć bardziej ogólnych słów kluczowych', 'cg') ?>.</li>
+                <li><?= __('Spróbuj użyć mniejszej liczby słów kluczowych', 'cg') ?>.</li>
+            </ul>
+
+        <?php endif; ?>
+    </div>
 
 <?php
 get_sidebar();
