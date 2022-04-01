@@ -27,7 +27,7 @@
             <a href="https://wordpress.org">WordPress</a>
         </span>
         <span>
-            <?= __('Motyw własny dostępnt na stronie', 'cg') ?>
+            <?= __('Motyw własny dostępny na stronie', 'cg') ?>
             <a href="https://github.com/angularcodegen/website">GitHub</a>
         </span>
     </div>

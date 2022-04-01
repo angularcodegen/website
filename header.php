@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <head>
+
+    <!-- Global Metadata -->
     <meta charset="<?php bloginfo('charset'); ?>"/>
     <meta name="viewport" content="width=device-width"/>
     <title><?php wp_title('|', true, 'right'); ?><?= get_option('blogname'); ?></title>
@@ -18,6 +20,24 @@
         gtag('config', 'G-R3P89JXDDQ');
     </script>
     <?php endif; ?>
+
+    <title>How To Implement Debounce And Throttle In JavaScript</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="<?= get_the_title() ?>">
+    <meta name="description" content="<?= get_the_excerpt() ?>">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url">
+    <meta property="og:title" content="<?= get_the_title() ?>">
+    <meta property="og:description" content="<?= get_the_excerpt() ?>">
+
+    <!-- Twitter -->
+    <meta property="twitter:url">
+    <meta property="twitter:title" content="<?= get_the_title() ?>">
+    <meta property="twitter:description" content="<?= get_the_excerpt() ?>">
+
 </head>
 
 <body <?php body_class(); ?>>

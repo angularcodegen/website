@@ -30,3 +30,10 @@ function no_self_ping(&$links)
 }
 
 add_action('pre_ping', 'no_self_ping');
+
+function remove_wp_block_library_css(){
+    wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style( 'wp-block-library-theme' );
+    wp_dequeue_style( 'wc-blocks-style' );
+}
+add_action( 'wp_enqueue_scripts', 'remove_wp_block_library_css', 100 );
