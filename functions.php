@@ -1,11 +1,12 @@
 <?php
 
 use CG\Integrations\Acf\AcfIntegration;
-use CG\Walkers\CustomWalkerComment;
+use CG\Seo\Seo;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
 AcfIntegration::turn_on();
+Seo::turn_on();
 
 function mytheme_register_nav_menu()
 {
@@ -31,17 +32,19 @@ function no_self_ping(&$links)
 
 add_action('pre_ping', 'no_self_ping');
 
-function remove_wp_block_library_css(){
-    wp_dequeue_style( 'wp-block-library' );
-    wp_dequeue_style( 'wp-block-library-theme' );
-    wp_dequeue_style( 'wc-blocks-style' );
-    wp_dequeue_style( 'global-styles' ); // REMOVE THEME.JSON
+function remove_wp_block_library_css()
+{
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+    wp_dequeue_style('wc-blocks-style');
+    wp_dequeue_style('global-styles'); // REMOVE THEME.JSON
 }
-add_action( 'wp_enqueue_scripts', 'remove_wp_block_library_css', 100 );
+
+add_action('wp_enqueue_scripts', 'remove_wp_block_library_css', 100);
 
 remove_action('wp_head', 'wp_generator');
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
-remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-remove_action( 'admin_print_styles', 'print_emoji_styles' );
+remove_action('admin_print_scripts', 'print_emoji_detection_script');
+remove_action('admin_print_styles', 'print_emoji_styles');

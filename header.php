@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<head>
+<head <?= get_language_attributes() ?>>
 
-    <!-- Global Metadata -->
     <meta charset="<?php bloginfo('charset'); ?>"/>
     <meta name="viewport" content="width=device-width"/>
     <title><?php wp_title('|', true, 'right'); ?><?= get_option('blogname'); ?></title>
     <link rel="profile" href="https://gmpg.org/xfn/11"/>
     <link rel="pingback" href="<?php echo esc_url(get_bloginfo('pingback_url')); ?>">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() . '/style.css'; ?>">
+
     <?php wp_head(); ?>
 
     <?php if (get_site_url() === 'https://codegen.studio' && is_user_logged_in() === false): ?>
@@ -24,23 +24,6 @@
             gtag('config', 'G-R3P89JXDDQ');
         </script>
     <?php endif; ?>
-
-    <title>How To Implement Debounce And Throttle In JavaScript</title>
-
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="<?= get_the_title() ?>">
-    <meta name="description" content="<?= get_the_excerpt() ?>">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url">
-    <meta property="og:title" content="<?= get_the_title() ?>">
-    <meta property="og:description" content="<?= get_the_excerpt() ?>">
-
-    <!-- Twitter -->
-    <meta property="twitter:url">
-    <meta property="twitter:title" content="<?= get_the_title() ?>">
-    <meta property="twitter:description" content="<?= get_the_excerpt() ?>">
 
 </head>
 
