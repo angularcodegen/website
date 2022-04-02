@@ -1,0 +1,47 @@
+<?php
+/**
+ * @var int $post_id
+ * @var bool $is_preview
+ */
+
+
+use CG\ContactForm\AjaxContactForm;
+
+$ajax = admin_url('admin-ajax.php');
+$action = AjaxContactForm::SEND_FORM_ACTION;
+?>
+
+<?php if ($is_preview): ?>
+    <div style=" height: 250px; border: 1px solid #000; display: flex; justify-content: center; align-items: center;">
+        <p>Formularz kontaktowy</p>
+    </div>
+<?php else: ?>
+    <form action="<?= $ajax ?>" method="post" class="contact-form">
+        <input type="hidden" name="action" value="<?= $action ?>">
+
+        <div>
+            <label for="subject">Temat *</label>
+            <input id="subject" type="text" name="subject" required autocomplete="off">
+        </div>
+
+        <div>
+            <label for="name">Imię i nazwisko *</label>
+            <input id="name" type="text" name="name" required>
+        </div>
+
+        <div>
+            <label for="email">E-mail *</label>
+            <input id="email" type="text" name="email">
+        </div>
+
+        <div>
+            <label for="content">Wiadomość *</label>
+            <textarea id="content" rows="10" name="content" required></textarea>
+        </div>
+
+        <div>
+            <button type="submit">Wyślij</button>
+        </div>
+
+    </form>
+<?php endif; ?>

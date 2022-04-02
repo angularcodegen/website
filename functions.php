@@ -1,5 +1,6 @@
 <?php
 
+use CG\ContactForm\ContactForm;
 use CG\Integrations\Acf\AcfIntegration;
 use CG\Seo\Seo;
 
@@ -7,6 +8,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 AcfIntegration::turn_on();
 Seo::turn_on();
+ContactForm::init();
 
 function mytheme_register_nav_menu()
 {

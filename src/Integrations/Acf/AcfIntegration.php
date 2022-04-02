@@ -5,7 +5,7 @@ namespace CG\Integrations\Acf;
 use CG\Integrations\Acf\Blocks\Alert\AlertBlock;
 use CG\Integrations\Acf\Blocks\Callout\CalloutBlock;
 use CG\Integrations\Acf\Blocks\CodePreview\CodePreviewBlock;
-use CG\Integrations\Acf\Blocks\Demo\DemoBlock;
+use CG\Integrations\Acf\Blocks\ContactForm\ContactFormBlock;
 
 class AcfIntegration
 {
@@ -13,7 +13,7 @@ class AcfIntegration
 
     public static function turn_on(): void
     {
-        new DemoBlock();
+        new ContactFormBlock();
         new CalloutBlock();
         new AlertBlock();
         new CodePreviewBlock();

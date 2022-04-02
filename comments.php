@@ -89,10 +89,10 @@ endif;
                 )
             );
             ?>
-        </ol><!-- .comment-list -->
+        </ol><
 
-    <?php endif; // have_comments() ?>
+    <?php endif; ?>
 
     <?php comment_form(); ?>
 
-</div><!-- #comments -->
+</div>

@@ -400,7 +400,7 @@ input[type=text], input[type=email], input[type=url], input[type=search] {
   box-sizing: border-box;
 }
 
-button {
+button, label {
   cursor: pointer;
 }
 
