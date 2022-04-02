@@ -79,8 +79,24 @@
         <h1><?php the_title() ?></h1>
     <?php endif; ?>
 
-    <?php if (is_single()): ?>
+    <?php if (is_category()): ?>
+        <h1><?= get_cat_name(get_queried_object_id()) ?></h1>
+    <?php endif; ?>
+
+    <?php if (is_tag()): ?>
+        <h1><?= get_tag(get_queried_object_id())->name ?></h1>
+    <?php endif; ?>
+
+    <?php if (is_single() && has_excerpt()): ?>
         <p><?= get_the_excerpt() ?></p>
+    <?php endif; ?>
+
+    <?php if (is_category() && category_description()): ?>
+        <p><?= category_description() ?></p>
+    <?php endif; ?>
+
+    <?php if (is_tag() && tag_description()): ?>
+        <p><?= tag_description() ?></p>
     <?php endif; ?>
 
     <?php if (is_search() || is_home()): ?>
