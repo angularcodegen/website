@@ -29,7 +29,27 @@
 
 <body <?php body_class(); ?>>
 
-<nav class="container" style="display: flex; justify-content: space-between; align-items: center;">
+<style>
+    .header-nav {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .header-nav > :first-child {
+        flex: 0 0 50%;
+    }
+
+    @media (min-width: 768px) {
+        .header-nav {
+            justify-content: space-between;
+            align-items: center;
+            flex-flow: row;
+        }
+    }
+
+</style>
+
+<nav class="container header-nav">
     <div>
         <a href="<?php echo get_home_url() ?>" style="font-size: 2.5rem; color: #fff"><?= get_bloginfo('name') ?></a>
         <p style="margin: 0"><?= get_bloginfo('description') ?></p>
@@ -50,9 +70,6 @@
         padding-top: 120px;
         padding-bottom: 120px;
         position: relative;
-    }
-
-    #jumbo h1 {
         text-align: center;
     }
 </style>
@@ -60,6 +77,10 @@
 <div id="jumbo" class="container">
     <?php if (is_singular()): ?>
         <h1><?php the_title() ?></h1>
+    <?php endif; ?>
+
+    <?php if (is_single()): ?>
+        <p><?= get_the_excerpt() ?></p>
     <?php endif; ?>
 
     <?php if (is_search() || is_home()): ?>
