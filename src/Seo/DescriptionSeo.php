@@ -15,7 +15,7 @@ class DescriptionSeo
         if (is_category()) {
             $excerpt = category_description();
         } else if (is_singular()) {
-            $excerpt = get_the_excerpt();
+            $excerpt = wp_strip_all_tags(get_the_excerpt(), true);
         }
         ob_start(); ?>
 

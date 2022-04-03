@@ -11,7 +11,7 @@ class AlertBlock
         add_action('acf/init', array($this, 'register_block'));
     }
 
-    function register_block()
+    public function register_block(): void
     {
         acf_register_block_type(array(
             'name' => 'alert',

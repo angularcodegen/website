@@ -6,7 +6,6 @@ class OpenGraphSeo
 {
     public function __construct()
     {
-        remove_filter('term_description', 'wpautop');
         add_action('wp_head', array($this, 'add_title'));
     }
 
@@ -21,7 +20,7 @@ class OpenGraphSeo
             $excerpt = category_description();
         } else if (is_singular()) {
             $title = get_the_title();
-            $excerpt = get_the_excerpt();
+            $excerpt = wp_strip_all_tags(get_the_excerpt(), true);
         }
 
         ob_start(); ?>

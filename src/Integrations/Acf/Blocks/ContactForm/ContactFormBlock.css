@@ -9,10 +9,25 @@
     font-size: 16px;
 }
 
-.contact-form > div:not(:first-child) {
-    margin-top: 1.5rem;
+.contact-form {
+    display: flex;
+    flex-flow: column;
+    gap: 1.5rem;
 }
 
 .contact-form > div:last-child {
-    text-align: right;
+    display: flex;
+    flex-flow: column;
+    gap: 1.5rem;
+}
+
+#recaptcha {
+    width: 50px;
+}
+
+@media (min-width: 768px) {
+    .contact-form > div:last-child {
+        justify-content: space-between;
+        flex-flow: row;
+    }
 }

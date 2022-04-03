@@ -15,8 +15,8 @@ class DemoBlock
     {
         acf_register_block_type(array(
             'name' => 'demo',
-            'title' => __('Demo'),
-            'description' => __('Demo przygotowanej aplikacji'),
+            'title' => __('Demo', 'cg'),
+            'description' => __('Demo przygotowanej aplikacji', 'cg'),
             'render_template' => __DIR__ . '/DemoBlock.phtml',
             'enqueue_style' => AcfIntegration::get_block_css(__DIR__, 'DemoBlock.css'),
             'mode' => 'preview',

@@ -7,7 +7,6 @@ class TitleSeo
 
     public function __construct()
     {
-        remove_filter('term_description','wpautop');
         add_action('wp_head', array($this, 'add_title'));
     }
 

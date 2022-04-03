@@ -6,6 +6,8 @@ use CG\Integrations\Acf\Blocks\Alert\AlertBlock;
 use CG\Integrations\Acf\Blocks\Callout\CalloutBlock;
 use CG\Integrations\Acf\Blocks\CodePreview\CodePreviewBlock;
 use CG\Integrations\Acf\Blocks\ContactForm\ContactFormBlock;
+use CG\Integrations\Acf\Blocks\Demo\DemoBlock;
+use CG\Integrations\Acf\Blocks\Excerpt\ExcerptBlock;
 
 class AcfIntegration
 {
@@ -17,6 +19,8 @@ class AcfIntegration
         new CalloutBlock();
         new AlertBlock();
         new CodePreviewBlock();
+        new ExcerptBlock();
+        new DemoBlock();
 
         new AcfJsonLoader();
 

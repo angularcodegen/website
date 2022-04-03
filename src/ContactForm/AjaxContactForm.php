@@ -18,25 +18,25 @@ class AjaxContactForm
 
     public function handle_action(): void
     {
+        $digit_1 = (int)$_REQUEST['digit_first'];
+        $digit_2 = (int)$_REQUEST['digit_second'];
+        $sum = (int)$_REQUEST['recaptcha'];
+
+        if ($digit_1 === 0 || $digit_2 === 0 || ($digit_1 + $digit_2) !== $sum) {
+            wp_die('recaptcha failed');
+        }
+
         $subject = $_REQUEST['subject'];
         $name = $_REQUEST['name'];
         $email = $_REQUEST['email'];
         $content = $_REQUEST['content'];
 
-        if (empty($subject ?? $name ?? $email ?? $content)) {
+        if (empty($subject) || empty($name) || empty($email) || empty($content)) {
             wp_die('Incorrect values');
         }
 
 
-        wp_insert_post(
-            array(
-                'post_author' => 1,
-                'post_content' => $content,
-                'post_title' => $subject . ' - ' . $name . ' - ' . $email,
-                'post_type' => CptContactForm::POST_TYPE,
-                'post_status' => 'publish'
-            )
-        );
+        wp_insert_post(array('post_author' => 1, 'post_content' => $content, 'post_title' => $subject . ' - ' . $name . ' - ' . $email, 'post_type' => CptContactForm::POST_TYPE, 'post_status' => 'publish'));
 
         $url = ThemeOptions::get_contact_form_redirect_url();
 

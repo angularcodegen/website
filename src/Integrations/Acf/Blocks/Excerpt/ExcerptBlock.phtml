@@ -1,0 +1,17 @@
+<?php
+/**
+ * @var bool $is_preview
+ */
+?>
+
+<?php if ($is_preview): ?>
+    <p style="margin-bottom: 0; font-size: 0.7rem">
+        Nie umieszczaj tutaj innych tagów HTML niż
+        <code>p</code>,<code>code</code>, <code>strong</code></p>
+    <div style="border: 1px solid blue; padding: 25px;">
+        <InnerBlocks/>
+    </div>
+<?php else: ?>
+    <InnerBlocks/>
+<?php endif; ?>
+

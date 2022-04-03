@@ -15,8 +15,8 @@ class CodePreviewBlock
     {
         acf_register_block_type(array(
             'name' => 'code_preview',
-            'title' => __('Code preview'),
-            'description' => __('A custom testimonial block.'),
+            'title' => __('Code preview', 'cg'),
+            'description' => __('A custom testimonial block.', 'cg'),
             'render_template' => __DIR__ . '/CodePreviewBlock.phtml',
             'enqueue_style' => AcfIntegration::get_block_css(__DIR__, 'CodePreviewBlock.css'),
             'mode' => 'preview',

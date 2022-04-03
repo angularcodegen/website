@@ -9,6 +9,12 @@ use CG\ContactForm\AjaxContactForm;
 
 $ajax = admin_url('admin-ajax.php');
 $action = AjaxContactForm::SEND_FORM_ACTION;
+
+try {
+    $two_digits = array(random_int(1, 5), random_int(1, 5),);
+} catch (Exception $e) {
+    $two_digits = array(5, 5,);
+}
 ?>
 
 <?php if ($is_preview): ?>
@@ -18,6 +24,8 @@ $action = AjaxContactForm::SEND_FORM_ACTION;
 <?php else: ?>
     <form action="<?= $ajax ?>" method="post" class="contact-form">
         <input type="hidden" name="action" value="<?= $action ?>">
+        <input type="hidden" name="digit_first" value="<?= $two_digits[0] ?>">
+        <input type="hidden" name="digit_second" value="<?= $two_digits[1] ?>">
 
         <div>
             <label for="subject">Temat *</label>
@@ -31,7 +39,7 @@ $action = AjaxContactForm::SEND_FORM_ACTION;
 
         <div>
             <label for="email">E-mail *</label>
-            <input id="email" type="text" name="email">
+            <input id="email" type="email" name="email">
         </div>
 
         <div>
@@ -40,6 +48,13 @@ $action = AjaxContactForm::SEND_FORM_ACTION;
         </div>
 
         <div>
+            <div>
+                <label for="recaptcha">Dodaj dwie liczby (weryfikacja anyspamowa)</label>
+                <div>
+                    <span><?= $two_digits[0] ?> + <?= $two_digits[1] ?> =</span>
+                    <input id="recaptcha" type="number" name="recaptcha" required>
+                </div>
+            </div>
             <button type="submit">Wyślij</button>
         </div>
 
