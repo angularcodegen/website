@@ -20,6 +20,27 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_6248bb17323f8",
+            "label": "Przekierowanie na stronę po uzupełnieniu formularzu",
+            "name": "58846561C82443CFB9A1CB9009B3C2B7",
+            "type": "page_link",
+            "instructions": "Gdzie przekierować użytkownika po tym jak uzupełni i wyśle formularz kontaktowy.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "allow_null": 1,
+            "allow_archives": 0,
+            "multiple": 0
         }
     ],
     "location": [
@@ -40,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1645468445
+    "modified": 1648988407
 }

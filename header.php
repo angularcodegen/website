@@ -1,3 +1,8 @@
+<?php
+
+use CG\ThemeOptions;
+
+?>
 <!DOCTYPE html>
 <head <?= get_language_attributes() ?>>
 

@@ -2,6 +2,8 @@
 
 namespace CG\ContactForm;
 
+use CG\ThemeOptions;
+
 class AjaxContactForm
 {
     public const SEND_FORM_ACTION = 'sendcontactform';
@@ -36,8 +38,12 @@ class AjaxContactForm
             )
         );
 
-        wp_redirect(home_url());
+        $url = ThemeOptions::get_contact_form_redirect_url();
 
-
+        if ($url) {
+            wp_redirect($url);
+        } else {
+            wp_redirect(home_url());
+        }
     }
 }
