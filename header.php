@@ -58,12 +58,7 @@
         <p style="margin: 0"><?= get_bloginfo('description') ?></p>
     </div>
     <?php
-    wp_nav_menu(array(
-        'theme_location' => 'main-menu',
-        'fallback_cb' => '__return_false',
-        'container_id' => 'menu_gorne',
-        'depth' => 0,
-    ));
+    wp_nav_menu(array('theme_location' => 'main-menu', 'fallback_cb' => '__return_false', 'container_id' => 'menu_gorne', 'depth' => 0,));
     ?>
 </nav>
 
@@ -84,7 +79,9 @@
     <?php if (is_singular()): ?>
         <h1><?php the_title() ?></h1>
     <?php endif; ?>
-    <?php if (is_single() && has_excerpt()): ?>
+
+    <?php $excerpt = get_the_excerpt() ?>
+    <?php if (empty($excerpt) === false && is_single()): ?>
         <p><?php the_excerpt() ?></p>
     <?php endif; ?>
 
