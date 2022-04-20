@@ -23,6 +23,7 @@ class AcfIntegration
         new DemoBlock();
 
         new AcfJsonLoader();
+        new AcfDisableUpdate();
 
         new AcfThemeOptions();
     }

@@ -25,7 +25,7 @@ $iframe_src = "https://{$branch}--{$repo_name}-{$organization}.netlify.app";
              alt="placeholder">
     <?php else: ?>
         <iframe src="<?= $iframe_src ?>"
-                sandbox="allow-scripts allow-same-origin allow-modals"
+                sandbox="allow-scripts allow-same-origin allow-modals allow-forms"
                 height="<?= $min_height ?>"
                 loading="lazy"></iframe>
     <?php endif ?>
