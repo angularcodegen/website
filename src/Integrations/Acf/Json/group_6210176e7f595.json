@@ -18,7 +18,10 @@
             "choices": {
                 "typescript": "TypeScript",
                 "angular": "Angular",
-                "xml": "HTML"
+                "xml": "HTML",
+                "php": "PHP",
+                "css": "CSS",
+                "plain": "Plain"
             },
             "default_value": false,
             "allow_null": 0,
@@ -153,5 +156,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1647201799
+    "modified": 1650823621
 }

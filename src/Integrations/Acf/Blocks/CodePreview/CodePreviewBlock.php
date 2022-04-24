@@ -3,12 +3,15 @@
 namespace CG\Integrations\Acf\Blocks\CodePreview;
 
 use CG\Integrations\Acf\AcfIntegration;
+use WP_Block_Editor_Context;
+use WP_Block_Type_Registry;
 
 class CodePreviewBlock
 {
     public function __construct()
     {
         add_action('acf/init', array($this, 'register_block'));
+        add_filter('allowed_block_types_all', array($this, 'remove_code_block'), 10, 2);
     }
 
     public function register_block(): void
@@ -24,6 +27,17 @@ class CodePreviewBlock
             'icon' => 'admin-comments',
             'keywords' => array(),
         ));
+    }
+
+    public function remove_code_block($allowed_blocks, WP_Block_Editor_Context $post): array
+    {
+        if ($post->post->post_type === 'post') {
+            $instance = WP_Block_Type_Registry::get_instance();
+            $instance->unregister('core/code');
+            return array_keys($instance->get_all_registered());
+        }
+
+        return $allowed_blocks;
     }
 }
 

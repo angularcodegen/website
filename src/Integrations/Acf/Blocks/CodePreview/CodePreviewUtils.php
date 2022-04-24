@@ -16,12 +16,10 @@ class CodePreviewUtils
         $selector = '%%%\r\n';
 
         self::$index = -1;
-        return preg_replace_callback("/$selector/",
-            static function ($matches): string {
-                self::$index++;
-                return self::$index % 2 === 0 ? '<mark>' : '</mark>';
-            },
-            $code);
+        return preg_replace_callback("/$selector/", static function (): string {
+            self::$index++;
+            return self::$index % 2 === 0 ? '<mark>' : '</mark>';
+        }, $code);
     }
 
     /**
@@ -32,17 +30,14 @@ class CodePreviewUtils
         if (empty($language)) {
             return $code;
         }
+
+        if ($language === 'plain') {
+            return $code;
+        }
+
         if ($language === "angular") {
             return self::highlight_angular($code);
         }
-
-//        $response = wp_remote_post('http://127.0.0.1:3000', array(
-//            'body' => array(
-//                'language' => $language,
-//                'code' => $code
-//            ),
-//        ));
-//        return wp_remote_retrieve_body($response);
 
         $hl = new Highlighter();
         return $hl->highlight($language, $code)->value;
