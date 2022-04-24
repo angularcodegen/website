@@ -1,17 +1,32 @@
 <?php
 /**
  * @var bool $is_preview
+ * @var string $content The block inner HTML (empty).
  */
+
+$allowed_blocks = array('core/paragraph');
+$inner_text = wp_strip_all_tags($content);
 ?>
 
-<!--156-->
-
 <?php if ($is_preview): ?>
-    <p style="margin-bottom: 0; font-size: 0.7rem">
-        Nie umieszczaj tutaj innych tagów HTML niż
-        <code>p</code>,<code>code</code>, <code>strong</code></p>
-    <div style="border: 1px solid blue; padding: 25px;">
-        <InnerBlocks/>
+    <div class="card" style="max-width: unset; color: rgb(60, 64, 67); font-size: 14px; line-height: 20px;">
+        <p>
+            <InnerBlocks allowedBlocks="<?= esc_attr(wp_json_encode($allowed_blocks)) ?>"/>
+        </p>
+        <div>
+            <progress max="156" value="<?= strlen($inner_text) ?>" style="width: 100%"></progress>
+            <?php if (strlen($inner_text) > 156): ?>
+                <span style="font-size: .8rem;color: red;">
+                    Podana zajawka jest za długa i zostanie obcięta w wynikach Google.
+                    Maksymalna liczba znaków to 156.
+                </span>
+            <?php else: ?>
+                <span style="font-size: .8rem;color: green;">
+                    Podana zajawka zawiera mniej niż 156 znaków.
+                    Oznacza to, że cała zajawka pojawi się w wynikach wyszukiwania Google.
+                </span>
+            <?php endif; ?>
+        </div>
     </div>
 <?php else: ?>
     <InnerBlocks/>
