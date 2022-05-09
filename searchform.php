@@ -47,6 +47,8 @@ $query = get_search_query();
         gap: .5rem;
         list-style: none;
         padding: 0;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     .terms a {
