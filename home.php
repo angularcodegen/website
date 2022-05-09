@@ -6,7 +6,7 @@ get_header(); ?>
         <?php
         while (have_posts()) :the_post(); ?>
 
-            <article id="<?php the_ID(); ?>>" <?php post_class() ?>>
+            <article id="<?php the_ID(); ?>" <?php post_class() ?>>
 
                 <span type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
