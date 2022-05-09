@@ -27,8 +27,11 @@ class Seo
             $excerpt = category_description();
         } else if (is_singular()) {
             $title = get_the_title();
-            $excerpt = wp_strip_all_tags(get_the_excerpt(), true);
+            $excerpt = get_the_excerpt();
         }
+
+        $title = wp_strip_all_tags($title, true);
+        $excerpt = wp_strip_all_tags($excerpt, true);
 
         ob_start(); ?>
 
