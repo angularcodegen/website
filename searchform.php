@@ -40,3 +40,42 @@ $query = get_search_query();
         </svg>
     </button>
 </form>
+
+<style>
+    .terms {
+        display: flex;
+        gap: .5rem;
+        list-style: none;
+        padding: 0;
+    }
+
+    .terms a {
+        display: inline-block;
+        padding: 0.35em 0.65em;
+        font-size: .75em;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: 0.25rem;
+        background-color: rgb(47 51 55 / 80%);
+    }
+</style>
+
+<?php
+$tags = get_tags();
+$cats = get_categories();
+$terms = array_merge($cats, $tags);
+?>
+
+<ul class="terms">
+    <?php foreach ($terms as $term): ?>
+        <li>
+            <a href="<?= get_term_link($term->term_id) ?>">
+                <?= $term->name ?>
+            </a>
+        </li>
+    <?php endforeach; ?>
+</ul>
+
