@@ -2,15 +2,15 @@
 
 use CG\ContactForm\ContactForm;
 use CG\Gutenberg\Gutenberg;
-use CG\Integrations\Acf\AcfIntegration;
+use CG\Integrations\ThemeIntegrations;
 use CG\Seo\Seo;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-AcfIntegration::turn_on();
 Seo::turn_on();
 ContactForm::init();
 Gutenberg::turn_on();
+ThemeIntegrations::turn_on_all();
 
 function mytheme_register_nav_menu()
 {
