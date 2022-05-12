@@ -44,17 +44,26 @@
     margin-top: 0;
 }
 
-pre > code.hljs {
+.code-preview > pre > code.hljs {
     display: block;
     overflow-x: auto;
     padding: 1em
 }
 
-pre > code.hljs mark {
-    background-color: #000000;
+.code-preview > pre > code.hljs mark {
+    background-color: hsl(215deg 33% 22%);
     display: block;
     color: inherit;
+
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    padding-left: .5rem;
+    border-left: 0.25rem solid hsl(30deg 100% 50%);
 }
+
+.code-preview.with-header > pre > code.hljs mark {
+}
+
 
 code.hljs {
     padding: 3px 5px
@@ -247,6 +256,7 @@ pre[class*="language-"] {
 .token.bold {
     font-weight: bold;
 }
+
 .token.italic {
     font-style: italic;
 }

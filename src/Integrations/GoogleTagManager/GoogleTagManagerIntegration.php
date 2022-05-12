@@ -2,7 +2,7 @@
 
 namespace CG\Integrations\GoogleTagManager;
 
-class GoogleTagManager
+class GoogleTagManagerIntegration
 {
 
     public function __construct()
