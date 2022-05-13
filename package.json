@@ -4,7 +4,7 @@
   "description": "Custom theme for blog",
   "main": "index.php",
   "scripts": {
-    "css": "sass ./styles/index.scss ./style.css",
+    "css": "sass ./styles/index.scss ./style.css --style compressed",
     "css::watch": "sass --watch ./styles/index.scss ./style.css"
   },
   "author": "Adrian Bury",

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*
+/*!
 Theme Name: CodeGen
 Theme URI: https://blog.adrianbury.pl
 Author: Adrian Bury
@@ -50,16 +50,4 @@ Text Domain: cg
 img {
   max-width: 100%;
   height: auto;
-}
-
-#menu_gorne {
-  ul {
-    padding: 0;
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-  }
-
-  li {
-  }
 }

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() . '/style.css'; ?>">
 
     <link rel="profile" href="https://gmpg.org/xfn/11"/>
-    
+
     <?php wp_head(); ?>
 </head>
 
@@ -40,8 +40,21 @@
         <a href="<?php echo get_home_url() ?>" style="font-size: 2.5rem; color: #fff"><?= get_bloginfo('name') ?></a>
         <p style="margin: 0"><?= get_bloginfo('description') ?></p>
     </div>
+    <style>
+        #menu_gorne ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+    </style>
     <?php
-    wp_nav_menu(array('theme_location' => 'main-menu', 'fallback_cb' => '__return_false', 'container_id' => 'menu_gorne', 'depth' => 0,));
+    wp_nav_menu(array(
+        'theme_location' => 'main-menu',
+        'fallback_cb' => '__return_false',
+        'container_id' => 'menu_gorne',
+        'depth' => 0,
+    ));
     ?>
 </nav>
 
