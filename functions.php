@@ -3,6 +3,7 @@
 use CG\ContactForm\ContactForm;
 use CG\Gutenberg\Gutenberg;
 use CG\Integrations\ThemeIntegrations;
+use CG\Plugins\WelcomeUser\WelcomeUserPlugin;
 use CG\Seo\Seo;
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -11,6 +12,7 @@ Seo::turn_on();
 ContactForm::init();
 Gutenberg::turn_on();
 ThemeIntegrations::turn_on_all();
+WelcomeUserPlugin::turn_on();
 
 function mytheme_register_nav_menu()
 {
