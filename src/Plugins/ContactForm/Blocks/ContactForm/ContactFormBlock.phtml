@@ -5,8 +5,9 @@
  */
 
 
-use CG\ContactForm\AjaxContactForm;
+use CG\Plugins\ContactForm\AjaxContactForm;
 
+$subject = get_field("92A3C1AA985D40F3A68A2D50FA4C4835");
 $ajax = admin_url('admin-ajax.php');
 $action = AjaxContactForm::SEND_FORM_ACTION;
 
@@ -29,7 +30,7 @@ try {
 
         <div>
             <label for="subject">Temat *</label>
-            <input id="subject" type="text" name="subject" required autocomplete="off">
+            <input id="subject" type="text" name="subject" required autocomplete="off" value="<?= $subject ?>">
         </div>
 
         <div>
@@ -39,7 +40,7 @@ try {
 
         <div>
             <label for="email">E-mail *</label>
-            <input id="email" type="email" name="email">
+            <input id="email" type="email" name="email" required>
         </div>
 
         <div>

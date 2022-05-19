@@ -1,6 +1,6 @@
 <?php
 
-namespace CG\ContactForm;
+namespace CG\Plugins\ContactForm;
 
 use CG\ThemeOptions;
 
@@ -36,7 +36,13 @@ class AjaxContactForm
         }
 
 
-        wp_insert_post(array('post_author' => 1, 'post_content' => $content, 'post_title' => $subject . ' - ' . $name . ' - ' . $email, 'post_type' => CptContactForm::POST_TYPE, 'post_status' => 'publish'));
+        wp_insert_post(array(
+            'post_author' => 1,
+            'post_content' => $content,
+            'post_title' => $subject . ' - ' . $name . ' - ' . $email,
+            'post_type' => ContactFormCpt::POST_TYPE,
+            'post_status' => 'publish'
+        ));
 
         $url = ThemeOptions::get_contact_form_redirect_url();
 

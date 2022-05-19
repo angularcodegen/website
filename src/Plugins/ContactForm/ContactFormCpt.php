@@ -1,8 +1,8 @@
 <?php
 
-namespace CG\ContactForm;
+namespace CG\Plugins\ContactForm;
 
-class CptContactForm
+class ContactFormCpt
 {
     public const POST_TYPE = 'contactform';
 

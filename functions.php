@@ -1,6 +1,6 @@
 <?php
 
-use CG\ContactForm\ContactForm;
+use CG\Plugins\ContactForm\ContactForm;
 use CG\Gutenberg\Gutenberg;
 use CG\Integrations\ThemeIntegrations;
 use CG\Plugins\WelcomeUser\WelcomeUserPlugin;
@@ -23,8 +23,16 @@ function mytheme_register_nav_menu()
 
 add_action('after_setup_theme', 'mytheme_register_nav_menu', 0);
 
-add_theme_support('html5', array('search-form', 'comment-list', 'comment-form', 'gallery', 'caption'));
+add_theme_support('html5', array(
+        'search-form',
+        'comment-list',
+        'comment-form',
+        'gallery',
+        'caption',
+    )
+);
 
+add_theme_support('post-thumbnails');
 
 function no_self_ping(&$links)
 {

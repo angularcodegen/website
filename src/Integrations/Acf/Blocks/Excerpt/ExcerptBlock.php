@@ -21,7 +21,21 @@ class ExcerptBlock
 
     public function register_block(): void
     {
-        acf_register_block_type(array('name' => 'excerpt', 'title' => __('Zajawka', 'cg'), 'description' => __('Własna implementacja zajawki', 'cg'), 'render_template' => __DIR__ . '/ExcerptBlock.phtml', 'enqueue_style' => AcfIntegration::get_block_css(__DIR__, 'ExcerptBlock.css'), 'mode' => 'preview', 'category' => 'formatting', 'icon' => 'admin-comments', 'keywords' => array(), 'supports' => array('jsx' => true, 'multiple' => false,),));
+        acf_register_block_type(array(
+            'name' => 'excerpt',
+            'title' => __('Zajawka', 'cg'),
+            'description' => __('Własna implementacja zajawki', 'cg'),
+            'render_template' => AcfIntegration::get_template_path_by_class_name(self::class),
+            'enqueue_style' => AcfIntegration::get_style_uri_by_class_name(self::class),
+            'mode' => 'preview',
+            'category' => 'formatting',
+            'icon' => 'admin-comments',
+            'keywords' => array(),
+            'supports' => array(
+                'jsx' => true,
+                'multiple' => false,
+            ),
+        ));
     }
 
     public function remove_excerpt_from_content(string $content): string
