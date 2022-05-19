@@ -7,7 +7,9 @@ class WelcomeUserPlugin
 
     public static function turn_on(): void
     {
-        new JellyTech();
+        new WelcomeUserCpt();
+        new WelcomeUserTracking();
+        new WelcomeUserPopup();
     }
 
 }
