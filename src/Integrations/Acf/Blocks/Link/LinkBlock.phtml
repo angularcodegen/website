@@ -1,0 +1,12 @@
+<?php
+/**
+ * @var bool $is_preview
+ */
+
+$href = $is_preview ? '#' : (get_field('E318D8925D3445D2BD6F318B5A025E01') ?? '#');
+$text = get_field('2DB385C2504541079C673D57E13EC5E5') ?? __('Placeholder', 'cg');
+?>
+
+<a href="<?= $href ?>">
+    <?= $text ?>
+</a>

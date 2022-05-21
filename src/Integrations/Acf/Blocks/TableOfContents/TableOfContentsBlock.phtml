@@ -1,0 +1,29 @@
+<?php
+/**
+ * @var bool $is_preview
+ */
+
+$content = get_the_content();
+$blocks = parse_blocks($content);
+$headers = array();
+foreach ($blocks as $item) {
+    if ($item['blockName'] === "core/heading") {
+        $headers[] = $item;
+    }
+}
+?>
+
+<?php if (count($headers) === 0): ?>
+    <p>Brak spisu treści</p>
+<?php else: ?>
+    <ul>
+        <?php foreach ($headers as $header): ?>
+            <li>
+                <a href="#<?= sanitize_title_with_dashes($header['innerHTML']) ?>">
+                    <?= wp_strip_all_tags($header['innerHTML'], true) ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>
+

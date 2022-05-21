@@ -1,0 +1,49 @@
+{
+    "key": "group_627ad0c4a92f3",
+    "title": "Blok - ikona",
+    "fields": [
+        {
+            "key": "field_627ad0cd473b3",
+            "label": "Ikona",
+            "name": "E272D0A20BAE4F82B63CD7630F111EDA",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "angular": "Angular",
+                "wordpress": "WordPress"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/icon"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1652216075
+}

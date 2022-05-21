@@ -1,0 +1,16 @@
+.consultation,
+.consultation-preview > div > .block-editor-block-list__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    justify-items: center;
+    justify-content: center;
+    align-items: stretch;
+}
+
+@media (min-width: 992px) {
+    .consultation,
+    .consultation-preview > div > .block-editor-block-list__layout {
+        grid-template-columns: 1fr 1fr;
+    }
+}

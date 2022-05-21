@@ -1,0 +1,23 @@
+<?php
+/**
+ * @var bool $is_preview
+ */
+
+$allowed_blocks = array('acf/consultation-item');
+
+$template = array(
+    array(
+        'acf/consultation-item',
+    ),
+    array(
+        'acf/consultation-item',
+    )
+);
+
+?>
+
+<section class="<?= $is_preview ? 'consultation-preview' : 'consultation' ?>">
+    <InnerBlocks
+            allowedBlocks="<?= esc_attr(wp_json_encode($allowed_blocks)) ?>"
+            template="<?= esc_attr(wp_json_encode($template,)) ?>"/>
+</section>

@@ -1,12 +1,12 @@
 {
-    "key": "group_620e8736515aa",
-    "title": "Blok - informacja",
+    "key": "group_628900a0cb708",
+    "title": "Blok - link",
     "fields": [
         {
-            "key": "field_620e8745fcb64",
-            "label": "Rodzaj",
-            "name": "EDAD460AF2E24DF19DBF666474E8A82E",
-            "type": "radio",
+            "key": "field_628900a58ed8f",
+            "label": "Link do strony",
+            "name": "E318D8925D3445D2BD6F318B5A025E01",
+            "type": "page_link",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -15,22 +15,16 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "helpful": "Pomocny",
-                "important": "Ważny",
-                "critical": "Krytyczny"
-            },
+            "post_type": "",
+            "taxonomy": "",
             "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "",
-            "layout": "horizontal",
-            "return_format": "value",
-            "save_other_choice": 0
+            "allow_archives": 1,
+            "multiple": 0
         },
         {
-            "key": "field_620e8786fcb65",
-            "label": "Nagłówek",
-            "name": "A4BA6D22A7BD4BCB9E303F110E814E52",
+            "key": "field_628900ec8ed90",
+            "label": "Tekst",
+            "name": "2DB385C2504541079C673D57E13EC5E5",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -52,7 +46,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/callout"
+                "value": "acf\/link"
             }
         ]
     ],
@@ -65,5 +59,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1652168935
+    "modified": 1653145855
 }
