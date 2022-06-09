@@ -69,7 +69,7 @@ class WelcomeUserPopup
     public function css(): void
     {
         ?>
-        <style>
+        <style data-js="welcome">
 
             body {
                 overflow: hidden;

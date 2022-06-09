@@ -28,22 +28,15 @@ class WelcomeUserTracking
 
         $user_id = $_COOKIE[self::USER_SOURCE_ID] ?? '';
         if ($user_id === '') {
-            $user_id = self::generateRandomString();
+            $user_id = wp_generate_uuid4();
             setcookie(self::USER_SOURCE_ID, $user_id, 0, "/");
         }
 
-        if ($user_id !== '') {
+        if ($user_id !== '' && is_user_logged_in() === false) {
             $this->save_track_item($user_source, $user_id);
         }
     }
 
-    private static function generateRandomString(): string
-    {
-        $x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $length = 11;
-
-        return substr(str_shuffle(str_repeat($x, ceil($length / strlen($x)))), 1, $length);
-    }
 
     private function save_track_item($user_source, $user_id): void
     {
