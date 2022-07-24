@@ -3,6 +3,7 @@
 $action = esc_url(home_url('/'));
 $placeholder = esc_attr_x('Search &hellip;', 'placeholder');
 $query = get_search_query();
+$autofocus = is_404() || is_search();
 ?>
 
 <style>
@@ -30,8 +31,15 @@ $query = get_search_query();
 
 <form role="search" method="get" class="search-form" action="<?= $action ?>">
     <label>
-        <input type="search" class="search-field" placeholder="<?= $placeholder ?>" value="<?= $query ?>" name="s"
-               autocomplete="off"/>
+        <input
+            <?= $autofocus ? 'autofocus' : '' ?>
+                type="search"
+                class="search-field"
+                placeholder="<?= $placeholder ?>"
+                value="<?= $query ?>"
+                name="s"
+                autocomplete="off"
+        />
     </label>
     <button type="submit" class="search-submit">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
