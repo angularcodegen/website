@@ -3,10 +3,10 @@
     <main class="container">
 
         <p>
-            <?= __('Podany adres', 'cg') ?>
+            <?= __('The requested URL', 'cg') ?>
             <code><?= $_SERVER['REQUEST_URI'] ?></code>
-            <?= __('nie został znaleziony.', 'cg') ?>
-            <?= __('Skorzystaj z wyszukiwarki, aby znaleźć to czego szukasz.', 'cg') ?>
+            <?= __('was not found on this server..', 'cg') ?>
+            <?= __('Try to use search to find what you need.', 'cg') ?>
         </p>
 
         <?= get_search_form() ?>

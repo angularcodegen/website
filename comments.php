@@ -77,7 +77,7 @@ endif;
 <div class="container comments-area">
 
     <?php if (have_comments()) : ?>
-        <h2 class="comments-title"><?= __('Komentarze', 'cg') ?></h2>
+        <h2 class="comments-title"><?= __('Comments', 'cg') ?></h2>
 
         <ol class="comment-list">
             <?php

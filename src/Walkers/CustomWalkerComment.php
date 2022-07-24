@@ -3,17 +3,16 @@
 namespace CG\Walkers;
 
 use Walker_Comment;
-use WP_Comment;
 
 class CustomWalkerComment extends Walker_Comment
 {
 
-    public function end_el(&$output, $data_object, $depth = 0, $args = array())
+    public function end_el(&$output, $data_object, $depth = 0, $args = array()): void
     {
         $output .= "</li>";
     }
 
-    protected function html5_comment($comment, $depth, $args)
+    protected function html5_comment($comment, $depth, $args): void
     {
         $commenter = wp_get_current_commenter();
         $show_pending_links = !empty($commenter['comment_author']);
@@ -52,7 +51,7 @@ class CustomWalkerComment extends Walker_Comment
                     <a href="<?= get_comment_link($comment, $args) ?>" style="font-size: .8rem">
                         <time datetime="<?= get_comment_time('c') ?>">
                             <?= human_time_diff(get_comment_time('U')) ?>
-                            <?= __('temu', 'cg') ?>
+                            <?= __('age', 'cg') ?>
                         </time>
                     </a>
 

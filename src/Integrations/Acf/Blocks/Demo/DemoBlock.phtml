@@ -32,15 +32,15 @@ $iframe_src = "https://{$branch}--{$repo_name}-{$organization}.netlify.app";
 
     <ul>
         <li>
-            <a href="<?= $source ?>" target="_blank">Kod źródłowy</a>
+            <a href="<?= $source ?>" target="_blank"><?= __('GitHub', 'cg') ?></a>
         </li>
         <li class="spacer"></li>
         <li>
-            <a href="<?= $iframe_src ?>" target="_blank">Nowa zakładka</a>
+            <a href="<?= $iframe_src ?>" target="_blank"><?= __('New window', 'cg') ?></a>
         </li>
         <li class="spacer"></li>
         <li>
-            <a href="<?= $demo_url ?>" target="_blank">StackBlitz</a>
+            <a href="<?= $demo_url ?>" target="_blank"><?= __('StackBlitz', 'cg') ?></a>
         </li>
     </ul>
 </div>

@@ -23,11 +23,12 @@
 <footer id="site-footer">
     <div class="container">
         <span>
-            <?= __('Strona dumnie wspierana przez', 'cg') ?>
+            <?= __('The site is proudly supported by', 'cg') ?>
             <a href="https://wordpress.org">WordPress</a>
         </span>
         <span>
-            <?= __('Motyw własny dostępny na stronie', 'cg') ?>
+            <?= __('Theme written from scratch.', 'cg') ?>
+            <?= __('Available on', 'cg') ?>
             <a href="https://github.com/angularcodegen/website">GitHub</a>
         </span>
     </div>

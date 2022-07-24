@@ -25,7 +25,7 @@ get_header(); ?>
                 <?php the_excerpt(); ?>
 
                 <p>
-                    <a href="<?php the_permalink(); ?>">Czytaj więcej</a>
+                    <a href="<?php the_permalink(); ?>"><?= __('Read more', 'cg') ?></a>
                 </p>
             </article>
 

@@ -27,7 +27,7 @@ get_header(); ?>
                         <?php the_excerpt(); ?>
 
                         <p>
-                            <a href="<?php the_permalink(); ?>">Czytaj więcej</a>
+                            <a href="<?php the_permalink(); ?>"><?= __('Read more', 'cg') ?></a>
                         </p>
                     </article>
 
@@ -46,18 +46,17 @@ get_header(); ?>
             </div>
         <?php else: ?>
             <p>
-                <?= __('Podana fraza', 'cg') ?>
+                <?= __('The given phrase', 'cg') ?>
                 - <em style="font-weight: bold"><?= get_search_query(false) ?></em> -
-                <?= __('nie została odnaleziona', 'cg') ?>.
+                <?= __('has not been found.', 'cg') ?>
             </p>
 
-            <p><?= __('Podpowiedzi', 'cg') ?>:</p>
+            <p><?= __('Hints', 'cg') ?>:</p>
 
             <ul>
-                <li><?= __('Sprawdź, czy wszystkie słowa zostały poprawnie napisane', 'cg') ?>.</li>
-                <li><?= __('Spróbuj użyć innych słów kluczowych', 'cg') ?>.</li>
-                <li><?= __('Spróbuj użyć bardziej ogólnych słów kluczowych', 'cg') ?>.</li>
-                <li><?= __('Spróbuj użyć mniejszej liczby słów kluczowych', 'cg') ?>.</li>
+                <li><?= __('Check that all words are spelled correctly.', 'cg') ?>.</li>
+                <li><?= __('Please try different keywords.', 'cg') ?>.</li>
+                <li><?= __('Try using more general keywords.', 'cg') ?>.</li>
             </ul>
 
         <?php endif; ?>
