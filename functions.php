@@ -3,7 +3,6 @@
 use CG\Plugins\ContactForm\ContactForm;
 use CG\Gutenberg\Gutenberg;
 use CG\Integrations\ThemeIntegrations;
-use CG\Plugins\WelcomeUser\WelcomeUserPlugin;
 use CG\Seo\Seo;
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -12,9 +11,8 @@ Seo::turn_on();
 ContactForm::init();
 Gutenberg::turn_on();
 ThemeIntegrations::turn_on_all();
-WelcomeUserPlugin::turn_on();
 
-function mytheme_register_nav_menu()
+function mytheme_register_nav_menu(): void
 {
     register_nav_menus(array(
         'main-menu' => __('Main menu', 'cg'),
@@ -34,7 +32,7 @@ add_theme_support('html5', array(
 
 add_theme_support('post-thumbnails');
 
-function no_self_ping(&$links)
+function no_self_ping(&$links): void
 {
     $home = get_option('home');
     foreach ($links as $l => $link) {
@@ -46,7 +44,7 @@ function no_self_ping(&$links)
 
 add_action('pre_ping', 'no_self_ping');
 
-function remove_wp_block_library_css()
+function remove_wp_block_library_css(): void
 {
     wp_dequeue_style('wp-block-library');
     wp_dequeue_style('wp-block-library-theme');
