@@ -1,9 +1,10 @@
 <?php
 
-use CG\Plugins\ContactForm\ContactForm;
 use CG\Gutenberg\Gutenberg;
 use CG\Integrations\ThemeIntegrations;
+use CG\Plugins\ContactForm\ContactForm;
 use CG\Seo\Seo;
+use CG\ThemeOptions;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -11,6 +12,29 @@ Seo::turn_on();
 ContactForm::init();
 Gutenberg::turn_on();
 ThemeIntegrations::turn_on_all();
+
+// @todo move this somewhere else
+
+add_image_size('post_tile', 192, 108, array('center', 'center'));
+
+function get_thumbnail_url_from_tree($size = 'post_tile'): string
+{
+    if (has_post_thumbnail()) {
+        return get_the_post_thumbnail_url(null, $size);
+    }
+
+    $terms = get_the_category();
+
+    foreach ($terms as $term) {
+        $field = get_field('44008F46AA4D4368B1634E38B19A873F', $term);
+        if ($field !== false && $field !== null) {
+            return $field['sizes'][$size] ?? $field['url'];
+        }
+    }
+
+    $default = ThemeOptions::get_default_thumbnail();
+    return $default['sizes'][$size] ?? $default['url'];
+}
 
 function mytheme_register_nav_menu(): void
 {

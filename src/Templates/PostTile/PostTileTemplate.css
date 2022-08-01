@@ -1,0 +1,1 @@
+.post-tile{display:grid;gap:1rem;grid-template-columns:auto}@media(min-width: 992px){.post-tile{grid-template-columns:320px auto}}.post-tile-image{width:100%}.post-tile-image-link{line-height:0}.post-tile-tags{display:flex;font-size:.8rem;margin-top:.5rem;column-gap:1rem;flex-wrap:wrap}.post-tile-icon{width:.8rem;height:.8rem}/*# sourceMappingURL=PostTileTemplate.css.map */

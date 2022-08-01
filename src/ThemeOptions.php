@@ -14,4 +14,9 @@ class ThemeOptions
         return get_field('58846561C82443CFB9A1CB9009B3C2B7', 'option');
     }
 
+    public static function get_default_thumbnail(): array
+    {
+        return get_field('B3A0C8866909406EB6D6252EBE32079F', 'option');
+    }
+
 }

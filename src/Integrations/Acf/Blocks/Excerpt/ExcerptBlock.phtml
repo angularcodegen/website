@@ -6,6 +6,10 @@
 
 $allowed_blocks = array('core/paragraph');
 $inner_text = wp_strip_all_tags($content);
+
+$no_tags = wp_strip_all_tags($content);
+$cut = wp_trim_words($content, 35, '...');
+
 ?>
 
 <?php if ($is_preview): ?>
@@ -14,16 +18,15 @@ $inner_text = wp_strip_all_tags($content);
             <InnerBlocks allowedBlocks="<?= esc_attr(wp_json_encode($allowed_blocks)) ?>"/>
         </p>
         <div>
-            <progress max="156" value="<?= strlen($inner_text) ?>" style="width: 100%"></progress>
-            <?php if (strlen($inner_text) > 156): ?>
-                <span style="font-size: .8rem;color: red;">
-                    Podana zajawka jest za długa i zostanie obcięta w wynikach Google.
-                    Maksymalna liczba znaków to 156.
+            <?php if ($no_tags === $cut): ?>
+                <span style="font-size: .8rem;color: green;">
+                    Podana zajawka składa się mniej niż <em>35</em> słów.
+                    Oznacza to, że cała zajawka pojawi się obok kafelka na stronie z postami.
                 </span>
             <?php else: ?>
-                <span style="font-size: .8rem;color: green;">
-                    Podana zajawka zawiera mniej niż 156 znaków.
-                    Oznacza to, że cała zajawka pojawi się w wynikach wyszukiwania Google.
+                <span style="font-size: .8rem;color: red;">
+                    Podana zajawka jest za długa i zostanie obcięta na stronie z postami.
+                    Maksymalna liczba słów to 35.
                 </span>
             <?php endif; ?>
         </div>

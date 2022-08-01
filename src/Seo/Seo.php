@@ -59,6 +59,18 @@ class Seo
         <meta property="article:modified_time" content="<?= get_the_modified_time('c') ?>"/>
     <?php endif; ?>
 
+        <?php
+        $thumbnail_url = get_thumbnail_url_from_tree('full');
+        $id = attachment_url_to_postid($thumbnail_url);
+        $metadata = wp_get_attachment_metadata($id);
+        ?>
+        <?php if (is_single()): ?>
+        <meta property="og:image" content="<?= $thumbnail_url ?>"/>
+        <meta property="og:image:width" content="<?= $metadata["width"] ?>"/>
+        <meta property="og:image:height" content="<?= $metadata["height"] ?>"/>
+        <meta property="og:image:type" content="<?= $metadata["sizes"]["thumbnail"]["mime-type"] ?>"/>
+    <?php endif; ?>
+
         <meta property="og:site_name" content="<?= get_option('blogname') ?>"/>
         <meta property="og:locale" content="<?= get_locale() ?>"/>
         <meta property="og:url" content="<?= get_permalink() ?>">
