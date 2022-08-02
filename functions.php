@@ -15,7 +15,7 @@ ThemeIntegrations::turn_on_all();
 
 // @todo move this somewhere else
 
-add_image_size('post_tile', 192, 108, array('center', 'center'));
+add_image_size('post_tile', 320, 180, array('center', 'center'));
 
 function get_thumbnail_url_from_tree($size = 'post_tile'): string
 {
