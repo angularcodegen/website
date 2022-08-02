@@ -17,10 +17,10 @@ ThemeIntegrations::turn_on_all();
 
 add_image_size('post_tile', 320, 180, array('center', 'center'));
 
-function get_thumbnail_url_from_tree($size = 'post_tile'): string
+function get_thumbnail_id_from_tree(): int
 {
     if (has_post_thumbnail()) {
-        return get_the_post_thumbnail_url(null, $size);
+        return get_post_thumbnail_id();
     }
 
     $terms = get_the_category();
@@ -28,12 +28,12 @@ function get_thumbnail_url_from_tree($size = 'post_tile'): string
     foreach ($terms as $term) {
         $field = get_field('44008F46AA4D4368B1634E38B19A873F', $term);
         if ($field !== false && $field !== null) {
-            return $field['sizes'][$size] ?? $field['url'];
+            return $field['id'];
         }
     }
 
     $default = ThemeOptions::get_default_thumbnail();
-    return $default['sizes'][$size] ?? $default['url'];
+    return $default['id'];
 }
 
 function mytheme_register_nav_menu(): void

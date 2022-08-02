@@ -9,9 +9,14 @@ use CG\Templates\PostTile\PostTileTemplate;
 
 <article class="post-tile">
     <a href="<?php the_permalink(); ?>" class="post-tile-image-link">
-        <img src="<?= get_thumbnail_url_from_tree() ?>"
-             alt="<?= get_the_title() ?>"
-             class="post-tile-image">
+        <?php
+        $id = get_thumbnail_id_from_tree();
+        echo wp_get_attachment_image($id, 'post_tile', false,
+            array(
+                'class' => 'post-tile-image'
+            )
+        );
+        ?>
     </a>
     <div style="display: flex; flex-direction: column; justify-content: space-between">
         <div>
