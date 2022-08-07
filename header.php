@@ -59,45 +59,62 @@
 </nav>
 
 
-<style>
-    #jumbo {
-        padding-top: 120px;
-        padding-bottom: 120px;
-        position: relative;
-    }
-
-    #jumbo > h1 {
-        text-align: center;
-    }
-</style>
-
-<div id="jumbo" class="container">
-    <?php if (is_singular()): ?>
-        <h1><?php the_title() ?></h1>
-    <?php endif; ?>
-
-    <?php $excerpt = get_the_excerpt() ?>
-    <?php if (empty($excerpt) === false && is_single()): ?>
-        <p><?php the_excerpt() ?></p>
-    <?php endif; ?>
+<?php
+$title = '';
+if (is_page()):
+    $title = get_the_title();
+elseif (is_category()):
+    $title = get_cat_name(get_queried_object_id());
+elseif (is_tag()):
+    $title = get_tag(get_queried_object_id())->name;
+endif;
 
 
-    <?php if (is_category()): ?>
-        <h1><?= get_cat_name(get_queried_object_id()) ?></h1>
-    <?php endif; ?>
-    <?php if (is_category() && category_description()): ?>
-        <p><?= category_description() ?></p>
-    <?php endif; ?>
+$description = '';
+if (is_category() && category_description()):
+    $description = category_description();
+elseif (is_tag() && tag_description()):
+    $description = tag_description();
+endif;
+
+$show_jumbo = $title !== '' || $description !== '' || is_search() || is_home();
+?>
 
 
-    <?php if (is_tag()): ?>
-        <h1><?= get_tag(get_queried_object_id())->name ?></h1>
-    <?php endif; ?>
-    <?php if (is_tag() && tag_description()): ?>
-        <p><?= tag_description() ?></p>
-    <?php endif; ?>
 
-    <?php if (is_search() || is_home()): ?>
-        <?= get_search_form() ?>
-    <?php endif; ?>
-</div>
+<?php if ($show_jumbo): ?>
+
+    <style>
+        #jumbo {
+            padding-top: 120px;
+            padding-bottom: 120px;
+            position: relative;
+        }
+
+        #jumbo:empty {
+            display: none;
+        }
+
+        #jumbo > h1 {
+            text-align: center;
+        }
+    </style>
+
+    <div id="jumbo" class="container">
+
+        <?php if ($title !== ''): ?>
+            <h1><?= $title ?></h1>
+        <?php endif; ?>
+
+        <?php if ($description !== ''): ?>
+            <div><?= $description ?></div>
+        <?php endif; ?>
+
+        <?php if (is_search() || is_home()): ?>
+            <?= get_search_form() ?>
+        <?php endif; ?>
+
+
+    </div>
+
+<?php endif; ?>

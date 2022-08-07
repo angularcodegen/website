@@ -4,8 +4,7 @@
   "description": "Custom theme for blog",
   "main": "index.php",
   "scripts": {
-    "css::index": "sass ./styles/index.scss ./style.css --style compressed",
-    "css::templates": "sass src/Templates:src/Templates --style=compressed"
+    "css::watch": "sass ./styles/index.scss:./style.css src/Templates:src/Templates --style=compressed --watch"
   },
   "author": "Adrian Bury",
   "private": "true",

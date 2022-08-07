@@ -1,0 +1,34 @@
+<?php
+
+use CG\Templates\SingleIntro\SingleIntroTemplate;
+
+/**
+ * @var $this SingleIntroTemplate
+ */
+?>
+
+<header class="post-intro">
+
+    <div class="post-intro-content">
+        <h1 class="post-intro-title"><?= get_the_title() ?></h1>
+        <div class="post-intro-excerpt"><?= get_the_excerpt() ?></div>
+
+        <?php
+        $categoriesTemplate = new CG\Templates\PostCategories\PostCategoriesTemplate();
+        $categoriesTemplate->render();
+        ?>
+    </div>
+
+    <?php
+    $id = get_thumbnail_id_from_tree();
+    echo wp_get_attachment_image(
+        $id,
+        'post_tile',
+        false,
+        array('class' => 'post-intro-image')
+    );
+    ?>
+
+</header>
+
+
