@@ -84,3 +84,21 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('admin_print_styles', 'print_emoji_styles');
+
+function redirect_to_full_url_if_needed(): void
+{
+    if (get_the_ID() === false) {
+        return;
+    }
+
+    $current_url = get_home_url() . $_SERVER['REQUEST_URI'];
+    $full_url = get_permalink();
+
+    if ($current_url === $full_url) {
+        return;
+    }
+
+    wp_redirect($full_url);
+}
+
+add_action('wp', 'redirect_to_full_url_if_needed');
