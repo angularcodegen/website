@@ -87,7 +87,7 @@ remove_action('admin_print_styles', 'print_emoji_styles');
 
 function redirect_to_full_url_if_needed(): void
 {
-    if (get_the_ID() === false) {
+    if (get_the_ID() === false || is_single() === false) {
         return;
     }
 
