@@ -98,7 +98,7 @@ function redirect_to_full_url_if_needed(): void
         return;
     }
 
-    wp_redirect($full_url);
+    wp_redirect($full_url, 301);
 }
 
 add_action('wp', 'redirect_to_full_url_if_needed');
