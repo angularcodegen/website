@@ -29,6 +29,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
+  line-height: 1;
 
   a {
     color: inherit;
@@ -41,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: none;
-  transition: color 0.3s linear;
+  transition: color 0.1s linear;
   color: #d3a656;
 
   &:hover {

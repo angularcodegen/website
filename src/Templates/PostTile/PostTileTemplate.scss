@@ -10,6 +10,11 @@
 
 .post-tile-image {
   width: 100%;
+  transition: 100ms ease-in-out scale;
+
+  &:hover {
+    scale: 1.03;
+  }
 }
 
 .post-tile-image-link {
