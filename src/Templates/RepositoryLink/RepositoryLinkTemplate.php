@@ -1,8 +1,8 @@
 <?php
 
-namespace CG\Templates\SingleIntro;
+namespace CG\Templates\RepositoryLink;
 
-class SingleIntroTemplate
+class RepositoryLinkTemplate
 {
 
     public function __construct()
@@ -12,14 +12,14 @@ class SingleIntroTemplate
 
     public function render(): void
     {
-        require 'SingleIntroTemplate.phtml';
+        require 'RepositoryLinkTemplate.phtml';
     }
 
     public function register_styles(): void
     {
         wp_enqueue_style(
             self::class,
-            get_theme_file_uri('src/Templates/SingleIntro/' . 'SingleIntroTemplate' . '.css')
+            get_theme_file_uri('src/Templates/RepositoryLink/' . 'RepositoryLinkTemplate' . '.css')
         );
     }
 

@@ -14,7 +14,6 @@ get_header(); ?>
                 $postIntro->render();
             }
             ?>
-
             <article>
                 <?php the_content(); ?>
             </article>

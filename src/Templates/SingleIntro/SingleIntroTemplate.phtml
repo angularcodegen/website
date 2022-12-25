@@ -1,5 +1,6 @@
 <?php
 
+use CG\Templates\RepositoryLink\RepositoryLinkTemplate;
 use CG\Templates\SingleIntro\SingleIntroTemplate;
 
 /**
@@ -7,28 +8,36 @@ use CG\Templates\SingleIntro\SingleIntroTemplate;
  */
 ?>
 
-<header class="post-intro">
+<header class="post-intro-container">
 
-    <div class="post-intro-content">
-        <h1 class="post-intro-title"><?= get_the_title() ?></h1>
-        <div class="post-intro-excerpt"><?= get_the_excerpt() ?></div>
+    <div class="post-intro">
+        <div class="post-intro-content">
+            <h1 class="post-intro-title"><?= get_the_title() ?></h1>
+            <div class="post-intro-excerpt"><?= get_the_excerpt() ?></div>
+
+            <?php
+            $categoriesTemplate = new CG\Templates\PostCategories\PostCategoriesTemplate();
+            $categoriesTemplate->render();
+            ?>
+        </div>
 
         <?php
-        $categoriesTemplate = new CG\Templates\PostCategories\PostCategoriesTemplate();
-        $categoriesTemplate->render();
+        $id = get_thumbnail_id_from_tree();
+        echo wp_get_attachment_image(
+            $id,
+            'post_tile',
+            false,
+            array('class' => 'post-intro-image')
+        );
         ?>
     </div>
 
     <?php
-    $id = get_thumbnail_id_from_tree();
-    echo wp_get_attachment_image(
-        $id,
-        'post_tile',
-        false,
-        array('class' => 'post-intro-image')
-    );
+    $source = new RepositoryLinkTemplate();
+    $source->render();
     ?>
 
 </header>
+
 
 
