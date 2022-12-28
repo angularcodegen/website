@@ -21,6 +21,7 @@ class CodePreviewBlock
             'description' => __('A custom testimonial block.', 'cg'),
             'render_template' => AcfIntegration::get_template_path_by_class_name(self::class),
             'enqueue_style' => AcfIntegration::get_style_uri_by_class_name(self::class),
+            'enqueue_script' => AcfIntegration::get_script_uri_by_class_name(self::class),
             'mode' => 'preview',
             'category' => 'formatting',
             'icon' => 'admin-comments',

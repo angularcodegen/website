@@ -26,7 +26,7 @@ class RepositoryUpdateWebHookController extends WP_REST_Controller
         register_rest_route($this->namespace, '/' . $this->rest_base, array(
             array(
                 'methods' => WP_REST_Server::CREATABLE,
-                'callback' => array($this, 'get_items'),
+                'callback' => array($this, 'create_item'),
                 'permission_callback' => array($this, 'create_item_permissions_check'),
             ),
         ));
@@ -45,14 +45,14 @@ class RepositoryUpdateWebHookController extends WP_REST_Controller
         return $signature === $received_signature;
     }
 
-    public function get_items($request): WP_Error|WP_REST_Response
+    public function create_item($request): WP_Error|WP_REST_Response
     {
         $theme_path = get_template_directory();
         chdir($theme_path);
-        $output = shell_exec('git pull');
+        $output = shell_exec('git pull 2>&1');
 
         if ($output === null) {
-            return new WP_Error('PULL FAILED');
+            return new WP_Error('PULL FAILED', $output);
         }
 
         return new WP_REST_Response(null, 204);

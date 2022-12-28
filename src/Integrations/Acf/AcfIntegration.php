@@ -68,5 +68,14 @@ class AcfIntegration
         return get_theme_file_uri('src/Integrations/Acf/Blocks/' . $dir_name . '/' . $file_name);
     }
 
+    public static function get_script_uri_by_class_name(string $class)
+    {
+        $ref = new ReflectionClass($class);
+        $path = $ref->getFileName();
+        $relative_path = str_replace(get_theme_file_path(), "", $path);
+        $uri = get_theme_file_uri($relative_path);
+        return rtrim($uri, "php") . "js";
+    }
+
 
 }
