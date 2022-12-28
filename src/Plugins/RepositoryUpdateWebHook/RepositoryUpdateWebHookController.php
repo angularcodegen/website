@@ -2,6 +2,7 @@
 
 namespace CG\Plugins\RepositoryUpdateWebHook;
 
+use ErrorException;
 use WP_Error;
 use WP_REST_Controller;
 use WP_REST_Response;
@@ -31,11 +32,17 @@ class RepositoryUpdateWebHookController extends WP_REST_Controller
         ));
     }
 
+    /**
+     * @throws ErrorException
+     */
     public function create_item_permissions_check($request): bool
     {
-        $secret = $request->get_json_params()['hook']['config']['secret'];
-        $saved_secret = RepositoryUpdateWebHookConfig::get_update_theme_repository_webhook_secret();
-        return $secret === $saved_secret;
+        $body = $request->get_body();
+        $secret = RepositoryUpdateWebHookConfig::get_update_theme_repository_webhook_secret();
+        $signature = 'sha256=' . hash('sha256', $secret, $body);
+
+        $received_signature = $request->get_header('X-Hub-Signature-256');
+        return $signature === $received_signature;
     }
 
     public function get_items($request): WP_Error|WP_REST_Response
