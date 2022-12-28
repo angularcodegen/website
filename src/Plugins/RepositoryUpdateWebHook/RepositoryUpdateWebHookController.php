@@ -39,7 +39,7 @@ class RepositoryUpdateWebHookController extends WP_REST_Controller
     {
         $body = $request->get_body();
         $secret = RepositoryUpdateWebHookConfig::get_update_theme_repository_webhook_secret();
-        $signature = 'sha256=' . hash('sha256', $secret, $body);
+        $signature = 'sha256=' . hash_hmac('sha256', $body, $secret);
 
         $received_signature = $request->get_header('X-Hub-Signature-256');
         return $signature === $received_signature;
