@@ -70,7 +70,7 @@
             "key": "field_63acb3ed5c691",
             "label": "Update theme repository webhook secret",
             "name": "1bea5ce805d94d4cbad97831133cd261",
-            "type": "text",
+            "type": "password",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -79,11 +79,9 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         }
     ],
     "location": [
@@ -104,5 +102,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1672262714
+    "modified": 1672265721
 }
