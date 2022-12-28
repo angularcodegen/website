@@ -3,6 +3,7 @@
 use CG\Gutenberg\Gutenberg;
 use CG\Integrations\ThemeIntegrations;
 use CG\Plugins\ContactForm\ContactForm;
+use CG\Plugins\RepositoryUpdateWebHook\RepositoryUpdateWebHook;
 use CG\Seo\Seo;
 use CG\ThemeOptions;
 
@@ -12,6 +13,7 @@ Seo::turn_on();
 ContactForm::init();
 Gutenberg::turn_on();
 ThemeIntegrations::turn_on_all();
+RepositoryUpdateWebHook::init();
 
 // @todo move this somewhere else
 
