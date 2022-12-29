@@ -6,9 +6,13 @@
             el.addEventListener('click', function () {
                 const code = el.parentElement.parentElement.querySelector('code');
                 const text = code.textContent;
-                navigator.clipboard.writeText(text);
-
-                alert("Content has been copied")
+                navigator.clipboard.writeText(text)
+                    .then(function () {
+                        alert("Content has been copied.")
+                    })
+                    .catch(function () {
+                        alert('Error! Can not copy.')
+                    });
             })
         });
 })();

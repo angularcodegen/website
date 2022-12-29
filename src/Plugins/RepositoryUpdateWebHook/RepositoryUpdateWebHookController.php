@@ -49,7 +49,7 @@ class RepositoryUpdateWebHookController extends WP_REST_Controller
     {
         $theme_path = get_template_directory();
         chdir($theme_path);
-        $output = shell_exec('git pull 2>&1');
+        $output = shell_exec('git pull');
 
         if ($output === null) {
             return new WP_Error('PULL FAILED', $output);
