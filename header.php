@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<head <?= get_language_attributes() ?>>
-
+<html <?= get_language_attributes() ?>>
+<head>
     <meta charset="<?php bloginfo('charset'); ?>"/>
     <meta name="viewport" content="width=device-width"/>
     <title><?php wp_title('|', true, 'right') ?><?= get_option('blogname') ?></title>
