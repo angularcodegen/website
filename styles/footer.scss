@@ -1,0 +1,19 @@
+#site-footer {
+  text-align: center;
+  padding: 15px;
+  background-color: rgb(47 51 55 / 80%);
+  font-size: 0.8rem;
+  margin-top: 5rem;
+
+  > .container {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 600px) {
+  #site-footer .container {
+    flex-direction: column;
+  }
+}

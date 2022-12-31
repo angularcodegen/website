@@ -1,0 +1,35 @@
+<?php
+
+use CG\Templates\Donations\DonationsTemplate;
+
+/**
+ * @var $this DonationsTemplate
+ */
+?>
+
+<section class="donations">
+    <h2 class="donations-title">Do you like the content?</h2>
+    <p>Your supports help me continue my work. Please consider making a donation.</p>
+
+    <div class="donations-list">
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <input type="hidden" name="hosted_button_id" value="PW5V35DCFRYW4"/>
+            <button type="submit" class="donations-button">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal logo">
+            </button>
+        </form>
+
+        <a href="https://www.buymeacoffee.com/codegenstudio" target="_blank">
+            <img class="buymeacoffee"
+                 src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                 alt="Buy Me A Coffee">
+        </a>
+    </div>
+
+    <p class="donations-note">
+        Donations are accepted through PayPal or Stripe.
+        You do not need a account to donate.
+        All major credit cards are accepted.
+    </p>
+
+</section>
