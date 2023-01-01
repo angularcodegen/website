@@ -45,3 +45,12 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+#article-content {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+#article-content > :first-child {
+  margin-top: 0;
+}

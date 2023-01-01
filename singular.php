@@ -1,5 +1,6 @@
 <?php
 
+use CG\Templates\Advertising\AdSense\AdSenseTemplate;
 use CG\Templates\Donations\DonationsTemplate;
 use CG\Templates\SingleIntro\SingleIntroTemplate;
 
@@ -12,9 +13,13 @@ get_header(); ?>
                 if (is_single()) :
                     $intro = new SingleIntroTemplate();
                     $intro->render();
+
+                    $ad = new AdSenseTemplate();
+                    $ad->render();
                 endif;
+
                 ?>
-                <article><?php the_content(); ?></article>
+                <article id="article-content"><?php the_content(); ?></article>
 
                 <?php
                 if (is_single()):
