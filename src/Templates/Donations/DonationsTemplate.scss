@@ -1,12 +1,13 @@
 $height: 3.5rem;
+$width: 12.5rem;
 
 .donations {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
   background: rgb(50 112 179 / 30%);
   border-radius: 4px;
   border-left: 0.5rem solid #1976D2;
-  padding: 1rem 0 1rem 1rem;
+  padding: 1rem;
 
   &-title {
     margin: 0;
@@ -14,6 +15,7 @@ $height: 3.5rem;
 
   &-button {
     height: $height;
+    width: $width;
     background: #ffdd00;
     padding: 0.5rem 1rem;
     border: none;
@@ -26,6 +28,7 @@ $height: 3.5rem;
 
   &-list {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
   }
 
@@ -33,5 +36,5 @@ $height: 3.5rem;
 
 .buymeacoffee {
   height: $height;
-  width: auto;
+  width: $width;
 }
