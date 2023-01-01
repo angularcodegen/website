@@ -20,7 +20,7 @@ try {
 
 <?php if ($is_preview): ?>
     <div style=" height: 250px; border: 1px solid #000; display: flex; justify-content: center; align-items: center;">
-        <p>Formularz kontaktowy</p>
+        <p>Contact form</p>
     </div>
 <?php else: ?>
     <form action="<?= $ajax ?>" method="post" class="contact-form">
@@ -29,34 +29,34 @@ try {
         <input type="hidden" name="digit_second" value="<?= $two_digits[1] ?>">
 
         <div>
-            <label for="subject">Temat *</label>
+            <label for="subject">Subject *</label>
             <input id="subject" type="text" name="subject" required autocomplete="off" value="<?= $subject ?>">
         </div>
 
         <div>
-            <label for="name">Imię i nazwisko *</label>
+            <label for="name">Name *</label>
             <input id="name" type="text" name="name" required>
         </div>
 
         <div>
-            <label for="email">E-mail *</label>
+            <label for="email">E-mail address *</label>
             <input id="email" type="email" name="email" required>
         </div>
 
         <div>
-            <label for="content">Wiadomość *</label>
+            <label for="content">Message *</label>
             <textarea id="content" rows="10" name="content" required></textarea>
         </div>
 
         <div>
             <div>
-                <label for="recaptcha">Dodaj dwie liczby (weryfikacja anyspamowa)</label>
+                <label for="recaptcha">Add two digits (Anti-spam verification)</label>
                 <div>
                     <span><?= $two_digits[0] ?> + <?= $two_digits[1] ?> =</span>
                     <input id="recaptcha" type="number" name="recaptcha" required>
                 </div>
             </div>
-            <button type="submit">Wyślij</button>
+            <button type="submit">Send</button>
         </div>
 
     </form>
