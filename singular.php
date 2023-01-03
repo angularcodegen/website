@@ -13,9 +13,6 @@ get_header(); ?>
                 if (is_single()) :
                     $intro = new SingleIntroTemplate();
                     $intro->render();
-
-                    $ad = new AdSenseTemplate();
-                    $ad->render();
                 endif;
 
                 ?>
