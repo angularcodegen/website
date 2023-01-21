@@ -10,7 +10,7 @@ use CG\ThemeOptions;
 $id = get_the_ID();
 $repo_name = get_field("ACA630A4083F4367B7D84CE36F55416D", $id);
 
-if ($repo_name): ?>
+if ($repo_name && trim($repo_name) !== ""): ?>
     <?php
     $organization = ThemeOptions::get_github_organization();
     $source = "https://github.com/{$organization}/{$repo_name}";
