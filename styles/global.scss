@@ -37,6 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 
   code {
     font-size: inherit;
+    padding: 0 .2em;
   }
 }
 
@@ -77,9 +78,13 @@ pre {
 }
 
 code {
-  font-size: 0.875rem;
-  color: #e83e8c;
   word-break: break-word;
+  background: rgba(110, 118, 129, 0.4);
+  font-size: .875rem;
+  color: #d7d7d7;
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
 }
 
 textarea,
