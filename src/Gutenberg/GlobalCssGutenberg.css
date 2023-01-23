@@ -1,3 +1,8 @@
 #editor code:not(.hljs) {
-    color: #e83e8c;
+    word-break: break-word;
+    background: rgba(110, 118, 129, 0.4);
+    font-size: .85rem;
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
 }
