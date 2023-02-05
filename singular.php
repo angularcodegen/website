@@ -2,6 +2,7 @@
 
 use CG\Templates\Advertising\AdSense\AdSenseTemplate;
 use CG\Templates\Donations\DonationsTemplate;
+use CG\Templates\FeaturedArticles\FeaturedArticlesTemplate;
 use CG\Templates\SingleIntro\SingleIntroTemplate;
 
 get_header(); ?>
@@ -22,6 +23,9 @@ get_header(); ?>
                 if (is_single()):
                     $donations = new DonationsTemplate();
                     $donations->render();
+
+                    $featureArticles = new FeaturedArticlesTemplate();
+                    $featureArticles->render();
                 endif;
                 ?>
 
