@@ -1,6 +1,6 @@
 # Website theme
 
-Custom WordPress theme for [codegen.studio](codegen.studio) website
+Custom WordPress theme for [codegen.studio](https://codegen.studio) website
 
 ## Development Setup
 
