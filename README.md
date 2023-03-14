@@ -1,6 +1,6 @@
 # Website theme
 
-Custom WordPress theme for codegen.studio website
+Custom WordPress theme for [codegen.studio](codegen.studio) website
 
 ## Development Setup
 
@@ -19,6 +19,7 @@ Custom WordPress theme for codegen.studio website
 ```shell
 cd ./wp-content/themes/
 git clone git@github.com:cdgstudio/website.git
+cd ./website
 ```
 
 2. Install PHP dependencies
