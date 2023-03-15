@@ -17,6 +17,25 @@ RepositoryUpdateWebHook::init();
 
 // @todo move this somewhere else
 
+// check for the required plugins
+add_action('init', 'check_required_plugins');
+
+function check_required_plugins() {
+    $required_plugins_slugs = [
+        'advanced-custom-fields' => [
+            'name' => "ACF",
+            'url' => 'https://www.advancedcustomfields.com/'
+        ]
+    ];
+
+    foreach($required_plugins_slugs as $slug => $metadata) {
+        if(!is_plugin_active($slug)) {
+            echo '<div class="error"><p>The ' . $metadata['name'] . ' plugin is required for this theme. Please <a href="' . $metadata['url'] .'">install it here</a>.</p></div>';
+        }
+    }
+}
+
+
 add_image_size('post_tile', 320, 180, array('center', 'center'));
 
 function get_thumbnail_id_from_tree(): int
