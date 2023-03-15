@@ -22,14 +22,15 @@ add_action('init', 'check_required_plugins');
 
 function check_required_plugins() {
     $required_plugins_slugs = [
-        'advanced-custom-fields' => [
+        'advanced-custom-fields/acf.php' => [
             'name' => "ACF",
-            'url' => 'https://www.advancedcustomfields.com/'
+            'url' => 'https://www.advancedcustomfields.com/',
+            'main_class' => 'acf'
         ]
     ];
 
     foreach($required_plugins_slugs as $slug => $metadata) {
-        if(!is_plugin_active($slug)) {
+        if(!is_plugin_active($slug) || !class_exists($metadata['main_class']))) {
             echo '<div class="error"><p>The ' . $metadata['name'] . ' plugin is required for this theme. Please <a href="' . $metadata['url'] .'">install it here</a>.</p></div>';
         }
     }
