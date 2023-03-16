@@ -17,25 +17,38 @@ RepositoryUpdateWebHook::init();
 
 // @todo move this somewhere else
 
-// check for the required plugins
-add_action('init', 'check_required_plugins');
+add_action('all_admin_notices', 'check_required_plugins');
 
-function check_required_plugins() {
+function check_required_plugins()
+{
     $required_plugins_slugs = [
         'advanced-custom-fields/acf.php' => [
             'name' => "ACF",
             'url' => 'https://www.advancedcustomfields.com/',
-            'main_class' => 'acf'
+            'or' => 'advanced-custom-fields-pro/acf.php' // optional for alternatives
         ]
     ];
 
     foreach($required_plugins_slugs as $slug => $metadata) {
-        if(!is_plugin_active($slug) || !class_exists($metadata['main_class']))) {
-            echo '<div class="error"><p>The ' . $metadata['name'] . ' plugin is required for this theme. Please <a href="' . $metadata['url'] .'">install it here</a>.</p></div>';
+        if(!is_plugin_active($slug)) {
+            if(array_key_exists('or', $metadata)) {
+                if(is_plugin_active($metadata['or'])) {
+                    continue;
+                }
+            }
+            show_missing_plugin_error($metadata['name'], $metadata['url']);
         }
     }
 }
 
+function show_missing_plugin_error($name, $url)
+{
+    ?>
+    <div class="notice notice-error">
+        <p>The <?= $name ?> plugin is required for this theme. Please <a href="<?= $url ?>">install it here</a>.</p>
+    </div>
+    <?php
+}
 
 add_image_size('post_tile', 320, 180, array('center', 'center'));
 
