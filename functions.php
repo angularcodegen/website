@@ -21,22 +21,25 @@ add_action('all_admin_notices', 'check_required_plugins');
 
 function check_required_plugins()
 {
-    $required_plugins_slugs = [
-        'advanced-custom-fields/acf.php' => [
+    $required_plugins = [
+        [
             'name' => "ACF",
             'url' => 'https://www.advancedcustomfields.com/',
-            'or' => 'advanced-custom-fields-pro/acf.php' // optional for alternatives
+            'slugs' => ['advanced-custom-fields/acf.php', 'advanced-custom-fields-pro/acf.php']
         ]
     ];
 
-    foreach($required_plugins_slugs as $slug => $metadata) {
-        if(!is_plugin_active($slug)) {
-            if(array_key_exists('or', $metadata)) {
-                if(is_plugin_active($metadata['or'])) {
-                    continue;
-                }
+    foreach($required_plugins as $plugin) {
+        $is_active = false;
+        foreach($plugin['slugs'] as $slug) {
+            if(is_plugin_active($slug)) {
+                $is_active = true;
+                break;
             }
-            show_missing_plugin_error($metadata['name'], $metadata['url']);
+        }
+
+        if(!$is_active) {
+            show_missing_plugin_error($plugin['name'], $plugin['url']);
         }
     }
 }
