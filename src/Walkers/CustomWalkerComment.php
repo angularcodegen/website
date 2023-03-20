@@ -24,7 +24,7 @@ class CustomWalkerComment extends Walker_Comment
         }
         ?>
     <li id="comment-<?php comment_ID(); ?>" <?php comment_class($this->has_children ? 'parent' : '', $comment); ?>>
-        <article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+        <article id="comment-<?php comment_ID(); ?>" class="comment-body">
             <div class="comment-author vcard">
                 <?php
                 if (0 != $args['avatar_size']) {

@@ -1,5 +1,6 @@
 <?php
 
+use CG\Templates\PostCategories\PostCategoriesTemplate;
 use CG\Templates\RepositoryLink\RepositoryLinkTemplate;
 use CG\Templates\SingleIntro\SingleIntroTemplate;
 
@@ -16,7 +17,7 @@ use CG\Templates\SingleIntro\SingleIntroTemplate;
             <div class="post-intro-excerpt"><?= get_the_excerpt() ?></div>
 
             <?php
-            $categoriesTemplate = new CG\Templates\PostCategories\PostCategoriesTemplate();
+            $categoriesTemplate = new PostCategoriesTemplate();
             $categoriesTemplate->render();
             ?>
         </div>
