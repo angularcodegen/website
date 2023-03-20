@@ -29,16 +29,16 @@ function check_required_plugins()
         ]
     ];
 
-    foreach($required_plugins as $plugin) {
+    foreach ($required_plugins as $plugin) {
         $is_active = false;
-        foreach($plugin['slugs'] as $slug) {
-            if(is_plugin_active($slug)) {
+        foreach ($plugin['slugs'] as $slug) {
+            if (is_plugin_active($slug)) {
                 $is_active = true;
                 break;
             }
         }
 
-        if(!$is_active) {
+        if (!$is_active) {
             show_missing_plugin_error($plugin['name'], $plugin['url']);
         }
     }
@@ -132,7 +132,7 @@ function redirect_to_full_url_if_needed(): void
     $current_url = get_home_url() . $_SERVER['REQUEST_URI'];
     $full_url = get_permalink();
 
-    if ($current_url === $full_url) {
+    if (str_contains($current_url, $full_url)) {
         return;
     }
 
