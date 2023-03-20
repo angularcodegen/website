@@ -17,6 +17,42 @@ RepositoryUpdateWebHook::init();
 
 // @todo move this somewhere else
 
+add_action('all_admin_notices', 'check_required_plugins');
+
+function check_required_plugins()
+{
+    $required_plugins = [
+        [
+            'name' => "ACF",
+            'url' => 'https://www.advancedcustomfields.com/',
+            'slugs' => ['advanced-custom-fields/acf.php', 'advanced-custom-fields-pro/acf.php']
+        ]
+    ];
+
+    foreach($required_plugins as $plugin) {
+        $is_active = false;
+        foreach($plugin['slugs'] as $slug) {
+            if(is_plugin_active($slug)) {
+                $is_active = true;
+                break;
+            }
+        }
+
+        if(!$is_active) {
+            show_missing_plugin_error($plugin['name'], $plugin['url']);
+        }
+    }
+}
+
+function show_missing_plugin_error($name, $url)
+{
+    ?>
+    <div class="notice notice-error">
+        <p>The <?= $name ?> plugin is required for this theme. Please <a href="<?= $url ?>">install it here</a>.</p>
+    </div>
+    <?php
+}
+
 add_image_size('post_tile', 320, 180, array('center', 'center'));
 
 function get_thumbnail_id_from_tree(): int
