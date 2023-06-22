@@ -1,8 +1,8 @@
 <?php
 
-namespace CG\Templates\PostCategories;
+namespace CG\Templates\PostTerms;
 
-class PostCategoriesTemplate
+class PostTermsTemplate
 {
 
     public function __construct()
@@ -12,14 +12,14 @@ class PostCategoriesTemplate
 
     public function render(): void
     {
-        require 'PostCategoriesTemplate.phtml';
+        require 'PostTermsTemplate.phtml';
     }
 
     public function register_styles(): void
     {
         wp_enqueue_style(
             self::class,
-            get_theme_file_uri('src/Templates/PostCategories/' . 'PostCategoriesTemplate' . '.css')
+            get_theme_file_uri('src/Templates/PostTerms/' . 'PostTermsTemplate' . '.css')
         );
     }
 
