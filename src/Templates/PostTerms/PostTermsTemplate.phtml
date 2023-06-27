@@ -31,7 +31,8 @@ use CG\Templates\PostTerms\PostTermsTemplate;
     <?php endforeach; ?>
 
     <?php
-    $terms = get_tags();
+    $terms = get_the_tags();
+    $terms = $terms === false ? array() : $terms;
     foreach ($terms as $term): ?>
         <a href="<?= get_term_link($term) ?>">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
