@@ -5,31 +5,12 @@
  */
 
 $allowed_blocks = array('core/paragraph');
-$inner_text = wp_strip_all_tags($content);
-
-$no_tags = wp_strip_all_tags($content);
-$cut = wp_trim_words($content, 35, '...');
 
 ?>
 
 <?php if ($is_preview): ?>
     <div class="card" style="max-width: unset; color: rgb(60, 64, 67); font-size: 14px; line-height: 20px;">
-        <p>
-            <InnerBlocks allowedBlocks="<?= esc_attr(wp_json_encode($allowed_blocks)) ?>"/>
-        </p>
-        <div>
-            <?php if ($no_tags === $cut): ?>
-                <span style="font-size: .8rem;color: green;">
-                    Podana zajawka składa się mniej niż <em>35</em> słów.
-                    Oznacza to, że cała zajawka pojawi się obok kafelka na stronie z postami.
-                </span>
-            <?php else: ?>
-                <span style="font-size: .8rem;color: red;">
-                    Podana zajawka jest za długa i zostanie obcięta na stronie z postami.
-                    Maksymalna liczba słów to 35.
-                </span>
-            <?php endif; ?>
-        </div>
+        <InnerBlocks allowedBlocks="<?= esc_attr(wp_json_encode($allowed_blocks)) ?>"/>
     </div>
 <?php else: ?>
     <InnerBlocks/>

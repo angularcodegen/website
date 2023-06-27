@@ -10,17 +10,9 @@ class PostTileTemplate
         add_action('get_footer', array($this, 'register_styles'));
     }
 
-    public function get_title(): string
-    {
-        $post_excerpt = get_the_excerpt();
-        $no_tags = wp_strip_all_tags($post_excerpt);
-        $cut = wp_trim_words($post_excerpt, 35, '...');
-        return $no_tags === $cut ? '' : $no_tags;
-    }
-
     public function get_excerpt(): string
     {
-        return wp_trim_words(get_the_excerpt(), 35, '...');
+        return get_the_excerpt();
     }
 
     public function render(): void

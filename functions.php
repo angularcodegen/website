@@ -23,7 +23,7 @@ function check_required_plugins()
 {
     $required_plugins = [
         [
-            'name' => "ACF",
+            'name' => 'ACF',
             'url' => 'https://www.advancedcustomfields.com/',
             'slugs' => ['advanced-custom-fields/acf.php', 'advanced-custom-fields-pro/acf.php']
         ]

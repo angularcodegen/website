@@ -29,13 +29,15 @@ use CG\Templates\PostTile\PostTileTemplate;
             $categoriesTemplate->render();
             ?>
 
-            <div style="text-align: justify; margin-top: 0.5rem" title="<?= $this->get_title() ?>">
+            <div style="text-align: justify; margin-top: 0.5rem">
                 <?= $this->get_excerpt() ?>
             </div>
         </div>
 
         <p style="margin: .5rem 0 0 0; line-height: 1;">
-            <a href="<?php the_permalink(); ?>"><?= __('Read more', 'cg') ?></a>
+            <a href="<?php the_permalink(); ?>" aria-label="<?= __('Read more about', 'cg') ?> <?php the_title() ?>">
+                <?= __('Read more', 'cg') ?>
+            </a>
         </p>
 
     </div>

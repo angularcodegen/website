@@ -83,9 +83,9 @@ class ExcerptBlock
         return null;
     }
 
-    public function remove_post_excerpt_block($allowed_blocks, WP_Block_Editor_Context $post): array
+    public function remove_post_excerpt_block($allowed_blocks, WP_Block_Editor_Context $context): array
     {
-        if ($post->post->post_type === 'post') {
+        if ($context->post->post_type === 'post') {
             $instance = WP_Block_Type_Registry::get_instance();
             $instance->unregister('core/post-excerpt');
             return array_keys($instance->get_all_registered());
