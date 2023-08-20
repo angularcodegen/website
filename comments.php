@@ -22,6 +22,7 @@ endif;
                     'walker' => new CustomWalkerComment(),
                     'short_ping' => true,
                     'style' => 'ol',
+                    'avatar_size' => 42
                 )
             );
             ?>
