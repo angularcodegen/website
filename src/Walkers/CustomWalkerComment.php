@@ -35,7 +35,7 @@ class CustomWalkerComment extends Walker_Comment
             </div>
             <div class="content">
 
-                <div class="comment-metadata">
+                <header class="comment-metadata">
                     <?php
                     $comment_author = get_comment_author_link($comment);
 
@@ -51,41 +51,40 @@ class CustomWalkerComment extends Walker_Comment
                     <a href="<?= get_comment_link($comment, $args) ?>" style="font-size: .8rem">
                         <time datetime="<?= get_comment_time('c') ?>">
                             <?= human_time_diff(get_comment_time('U')) ?>
-                            <?= __('age', 'cg') ?>
+                            <?= __('ago', 'cg') ?>
                         </time>
                     </a>
-
-                    <?php
-                    edit_comment_link(__('Edit'), ' <span class="edit-link">', '</span>');
-                    ?>
-                </div><!-- .comment-metadata -->
+                </header>
 
                 <div class="comment-content">
                     <?php comment_text(); ?>
-                </div><!-- .comment-content -->
+                </div>
 
                 <?php if ('0' === $comment->comment_approved) : ?>
                     <em class="comment-awaiting-moderation"
                         style="margin-top: 10px; display: inline-block"><?php echo $moderation_note; ?></em>
                 <?php endif; ?>
 
-                <?php
-                if ('1' === $comment->comment_approved || $show_pending_links) {
-                    comment_reply_link(
-                        array_merge(
-                            $args,
-                            array(
-                                'add_below' => 'div-comment',
-                                'depth' => $depth,
-                                'max_depth' => $args['max_depth'],
-                                'before' => '<div class="reply" style="font-size: .8rem">',
-                                'after' => '</div>',
-                            )
-                        )
-                    );
-                }
-                ?>
+                <footer class="comment-actions">
+                    <?php
+                        if ('1' === $comment->comment_approved || $show_pending_links):
+                            comment_reply_link(
+                                array_merge(
+                                    $args,
+                                    array(
+                                        'add_below' => 'div-comment',
+                                        'depth' => $depth,
+                                        'max_depth' => $args['max_depth'],
+                                        'before' => '<div class="reply">',
+                                        'after' => '</div>',
+                                    )
+                                )
+                            );
+                        endif;
 
+                        edit_comment_link(__('Edit'), ' <span class="edit-link">', '</span>');
+                    ?>
+                </footer>
             </div>
 
 
