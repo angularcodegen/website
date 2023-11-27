@@ -136,6 +136,25 @@
             "maxlength": "",
             "rows": 15,
             "new_lines": ""
+        },
+        {
+            "key": "field_65637f3380473",
+            "label": "Formatuj kod przed zapisem",
+            "name": "585E222B4DA4043E42F80B2E676BB369",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -156,5 +175,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1659386328
+    "modified": 1701023249
 }
