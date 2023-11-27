@@ -18,7 +18,7 @@ $info = $header_data['CC4A21F9F0AB429A833837B499B095F1'] ?? '';
 $code = CodePreviewUtils::highlight_lines($code);
 
 if($is_preview && $should_format) {
-    $preview_code = CodePreviewHttp::format($language_name, $code);
+    $code = CodePreviewHttp::format($language_name, $code);
 }
 
 $code = CodePreviewHttp::highlight($language_name, $code);
