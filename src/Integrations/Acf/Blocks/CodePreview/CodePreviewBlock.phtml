@@ -21,7 +21,8 @@ if($is_preview && $should_format) {
     $code = CodePreviewHttp::format($language_name, $code);
 }
 
-$code = CodePreviewHttp::highlight($language_name, $code);
+// $code = CodePreviewHttp::highlight($language_name, $code);
+$code = CodePreviewUtils::highlight($language_name, $code);
 
 ?>
 

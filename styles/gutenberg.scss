@@ -2,10 +2,28 @@
   text-align: right;
 }
 
-.has-text-align-center, .aligncenter {
+.has-text-align-center,
+.aligncenter {
   text-align: center;
 }
 
 .has-text-align-left {
   text-align: left;
+}
+
+figure.wp-block-image {
+  margin: 0;
+
+  > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.5rem;
+  }
+
+  > figcaption {
+    font-size: 0.875rem;
+    text-align: center;
+    padding: 0.5rem;
+  }
 }
