@@ -17,17 +17,16 @@ $info = $header_data['CC4A21F9F0AB429A833837B499B095F1'] ?? '';
 
 $code = CodePreviewUtils::highlight_lines($code);
 
-if($is_preview && $should_format) {
+if ($is_preview && $should_format) {
     $code = CodePreviewHttp::format($language_name, $code);
 }
 
-// $code = CodePreviewHttp::highlight($language_name, $code);
-$code = CodePreviewUtils::highlight($language_name, $code);
+$code = CodePreviewHttp::highlight($language_name, $code);
 
 ?>
 
 <div class="code-preview <?= $show_header ? 'with-header' : '' ?> <?= $type ?>">
-    <?php if($show_header): ?>
+    <?php if ($show_header): ?>
         <header>
             <div>
                 <?= $info ?>
