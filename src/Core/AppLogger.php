@@ -2,9 +2,10 @@
 
 namespace CG\Core;
 
+use Monolog\Formatter\JsonFormatter;
 use Monolog\Level;
 use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
+use Monolog\Handler\RotatingFileHandler;
 
 class AppLogger
 {
@@ -14,12 +15,15 @@ class AppLogger
     {
         if (self::$logger === null) {
             $logger = new Logger('APP_LOGGER');
-            $logger->pushHandler(
-                new StreamHandler(
-                    self::getPath('APP_LOGS.log'),
-                    Level::Debug
-                )
+
+            $stream = new RotatingFileHandler(
+                filename: self::getPath('APP_LOGS.log'),
+                maxFiles: 5,
+                level: Level::Debug
             );
+            $stream->setFormatter(new JsonFormatter());
+
+            $logger->pushHandler($stream);
         }
 
 

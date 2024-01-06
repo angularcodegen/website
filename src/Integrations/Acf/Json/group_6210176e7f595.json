@@ -155,6 +155,25 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_659977a7a1904",
+            "label": "Sformatowy i podświetonly tekst",
+            "name": "E3CBDF3F888B1896576C840F04586E24",
+            "type": "text",
+            "instructions": "Pole prywatne",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -175,5 +194,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1701023249
+    "modified": 1704558186
 }

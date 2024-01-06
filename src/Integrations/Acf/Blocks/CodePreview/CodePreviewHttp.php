@@ -25,7 +25,7 @@ class CodePreviewHttp
             "https://functions.codegen.studio/api/code/highlight?" . $params,
             array(
                 'body' => $code,
-                'timeout' => 1,
+                'timeout' => 2,
             ),
         );
         $timeConsumed = round(microtime(true) - $curTime, 3) * 1000;
@@ -37,6 +37,11 @@ class CodePreviewHttp
         ]);
 
         if (is_wp_error($response)) {
+            AppLogger::getLogger()->error('Code failed to highlight', [
+                "code" => $code,
+                "wp_error" => $response
+            ]);
+
             return $code;
         }
 
