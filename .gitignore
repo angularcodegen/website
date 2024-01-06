@@ -3,3 +3,4 @@ vendor
 composer.phar
 *.css.map
 logs
+!logs/index.php
