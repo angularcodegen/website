@@ -58,12 +58,16 @@ class CodePreviewBlock
         $new_post_content = serialize_blocks($parsed);
 
         remove_action('save_post', array($this, 'format_code_if_needed'));
+        remove_action('post_updated', 'wp_save_post_revision');
+
         wp_update_post(
             array(
                 'ID' => $post_id,
                 'post_content' => wp_slash($new_post_content),
             )
         );
+
+        add_action('post_updated', 'wp_save_post_revision');
         add_action('save_post', array($this, 'format_code_if_needed'));
     }
 
