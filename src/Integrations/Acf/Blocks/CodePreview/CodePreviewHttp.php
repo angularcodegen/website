@@ -2,41 +2,62 @@
 
 namespace CG\Integrations\Acf\Blocks\CodePreview;
 
-class CodePreviewHttp {
+use CG\Core\AppLogger;
 
-    public static function highlight($language, $code): string {
-        if(empty($language) || empty($code)) {
+class CodePreviewHttp
+{
+
+    public static function highlight($language, $code): string
+    {
+        if (empty($language) || empty($code)) {
             return $code;
         }
 
-        $params = http_build_query(array(
-            "language" => $language,
-        ));
+        $params = http_build_query(
+            array(
+                "language" => $language,
+            )
+        );
+
+
+        $curTime = microtime(true);
         $response = wp_remote_post(
-            "https://functions.codegen.studio/api/code/highlight?".$params,
+            "https://functions.codegen.studio/api/code/highlight?" . $params,
             array(
                 'body' => $code,
                 'timeout' => 1,
             ),
         );
+        $timeConsumed = round(microtime(true) - $curTime, 3) * 1000;
 
-        if(is_wp_error($response)) {
+        AppLogger::getLogger()->info("Code has been highlighted", [
+            "requestTime" => $timeConsumed,
+            "unit" => "ms"
+
+        ]);
+
+        if (is_wp_error($response)) {
             return $code;
         }
 
         return $response['body'];
     }
 
-    public static function format($language, $code): string {
-        if(empty($language) || empty($code)) {
+    public static function format($language, $code): string
+    {
+        if (empty($language) || empty($code)) {
             return $code;
         }
 
-        $params = http_build_query(array(
-            "language" => $language,
-        ));
+        $params = http_build_query(
+            array(
+                "language" => $language,
+            )
+        );
+
+        $curTime = microtime(true);
         $response = wp_remote_post(
-            "https://functions.codegen.studio/api/code/format?".$params,
+            "https://functions.codegen.studio/api/code/format?" . $params,
             array(
                 'body' => $code,
                 'timeout' => 1,
@@ -45,8 +66,16 @@ class CodePreviewHttp {
                 ),
             ),
         );
+        $timeConsumed = round(microtime(true) - $curTime, 3) * 1000;
 
-        if(is_wp_error($response)) {
+
+        AppLogger::getLogger()->info("Code has been formatted", [
+            "requestTime" => $timeConsumed,
+            "unit" => "ms"
+
+        ]);
+
+        if (is_wp_error($response)) {
             return $code;
         }
 

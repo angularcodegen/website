@@ -14,9 +14,9 @@
   },
   "require": {
     "symfony/var-dumper": "^6.0",
-    "scrivo/highlight.php": "v9.18.1.9"
-  }
-  ,
+    "scrivo/highlight.php": "v9.18.1.9",
+    "monolog/monolog": "^3.5"
+  },
   "require-dev": {
     "roave/security-advisories": "dev-latest"
   }
