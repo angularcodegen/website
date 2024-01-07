@@ -23,7 +23,7 @@ class CodePreviewHttp
 
         $curTime = microtime(true);
         $response = wp_remote_post(
-            "https://functions.codegen.studio/api/code/highlight?" . $params,
+            "https://functions.codegen.studio/api/code/format-and-highlight?" . $params,
             array(
                 'body' => $code,
             ),
@@ -43,7 +43,7 @@ class CodePreviewHttp
             ]);
         }
 
-        if (is_wp_error($response) || wp_remote_retrieve_response_code($response) !== 200) {
+        if (is_wp_error($response) || wp_remote_retrieve_response_code($response) != 200) {
             self::$logger->error('Code failed to format and highlight', [
                 "code" => $code,
                 "wp_error" => $response
@@ -84,7 +84,7 @@ class CodePreviewHttp
 
         ]);
 
-        if (is_wp_error($response) || wp_remote_retrieve_response_code($response) !== 200) {
+        if (is_wp_error($response) || wp_remote_retrieve_response_code($response) != 200) {
             self::$logger->error('Code failed to highlight', [
                 "code" => $code,
                 "wp_error" => $response
@@ -128,7 +128,7 @@ class CodePreviewHttp
 
         ]);
 
-        if (is_wp_error($response) || wp_remote_retrieve_response_code($response) !== 200) {
+        if (is_wp_error($response) || wp_remote_retrieve_response_code($response) != 200) {
             self::$logger->error('Code failed to highlight', [
                 "code" => $code,
                 "wp_error" => $response
