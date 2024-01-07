@@ -10,7 +10,7 @@ class CodePreviewCron
 
     public function __construct()
     {
-        add_action(self::ACTION, array($this, 'format_and_highlight_code'));
+        // add_action(self::ACTION, array($this, 'format_and_highlight_code'));
     }
 
     public static function register_new_cron_for_block($post_id)
