@@ -2,7 +2,6 @@
 
 namespace CG\Integrations\Acf\Blocks\CodePreview;
 
-use CG\Core\AppLogger;
 use CG\Integrations\Acf\AcfIntegration;
 use WP_Block_Type_Registry;
 
@@ -14,7 +13,9 @@ class CodePreviewBlock
     {
         add_action('acf/init', array($this, 'register_block'));
         add_filter('allowed_block_types_all', array($this, 'remove_code_block'));
-        add_action('save_post', array($this, 'format_code_if_needed'));
+        add_action('save_post', array($this, 'remove_cache'));
+
+        new CodePreviewCron();
     }
 
     public function register_block(): void
@@ -42,8 +43,12 @@ class CodePreviewBlock
         return array_keys($instance->get_all_registered());
     }
 
-    public function format_code_if_needed($post_id)
+    public function remove_cache($post_id)
     {
+        if (defined("DOING_CRON") && DOING_CRON) {
+            return;
+        }
+
         $post_content = get_the_content(null, false, $post_id);
         $has_block = has_block(self::NAME, $post_content);
         if (false === $has_block) {
@@ -57,7 +62,7 @@ class CodePreviewBlock
 
         $new_post_content = serialize_blocks($parsed);
 
-        remove_action('save_post', array($this, 'format_code_if_needed'));
+        remove_action('save_post', array($this, 'remove_cache'));
         remove_action('post_updated', 'wp_save_post_revision');
 
         wp_update_post(
@@ -68,7 +73,7 @@ class CodePreviewBlock
         );
 
         add_action('post_updated', 'wp_save_post_revision');
-        add_action('save_post', array($this, 'format_code_if_needed'));
+        add_action('save_post', array($this, 'remove_cache'));
     }
 
     private function format_and_highlight_block(mixed &$block): void
@@ -78,18 +83,7 @@ class CodePreviewBlock
         }
 
         if ($block['blockName'] === self::NAME) {
-            $should_format = $block['attrs']['data']['585E222B4DA4043E42F80B2E676BB369'];
-
-            if ("1" === $should_format) {
-                $language = $block['attrs']['data']['593D265269114F70B5E116DB58AF9BE5'];
-                $code = $block['attrs']['data']['8E9300D01F9547E781F8F7DE5DCA0742'];
-
-                $formatted = CodePreviewHttp::format($language, $code);
-                $highlighted = CodePreviewHttp::highlight($language, $formatted);
-
-                $block['attrs']['data']['8E9300D01F9547E781F8F7DE5DCA0742'] = $formatted;
-                $block['attrs']['data']['E3CBDF3F888B1896576C840F04586E24'] = $highlighted;
-            }
+            $block['attrs']['data']['E3CBDF3F888B1896576C840F04586E24'] = '';
         }
 
     }

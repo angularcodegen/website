@@ -21,8 +21,8 @@ class AppLogger
                 maxFiles: 5,
                 level: Level::Debug
             );
-            $stream->setFormatter(new JsonFormatter());
 
+            $stream->setFormatter(new JsonFormatter());
             $logger->pushHandler($stream);
         }
 

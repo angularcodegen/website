@@ -5,6 +5,7 @@
 
 use CG\Integrations\Acf\Blocks\CodePreview\CodePreviewHttp;
 use CG\Integrations\Acf\Blocks\CodePreview\CodePreviewUtils;
+use CG\Integrations\Acf\Blocks\CodePreview\CodePreviewCron;
 
 $language_name = get_field('593D265269114F70B5E116DB58AF9BE5') ?? '';
 $code = get_field('8E9300D01F9547E781F8F7DE5DCA0742') ?? '';
@@ -13,22 +14,20 @@ $precomputed_code = get_field('E3CBDF3F888B1896576C840F04586E24');
 
 $show_header = get_field('7E4C8F667ABD4C4C801D703E7F95C5B8');
 $header_data = get_field('BE6B8012D8D84DC2A1E0B7488560F547');
-$should_format = get_field('585E222B4DA4043E42F80B2E676BB369');
 $type = $header_data['91BA2AE9587D44B3B2678890B254A752'] ?? '';
 $info = $header_data['CC4A21F9F0AB429A833837B499B095F1'] ?? '';
 
 $code = CodePreviewUtils::highlight_lines($code);
 
-if ($should_format) {
-    if ($is_preview) {
-        $code = CodePreviewHttp::format($language_name, $code);
-        $code = CodePreviewHttp::highlight($language_name, $code);
+if ($is_preview) {
+    $code = CodePreviewHttp::format_and_highlight($language_name, $code);
+} else {
+    if ($precomputed_code) {
+        $code = $precomputed_code;
     } else {
-        if ($precomputed_code) {
-            $code = $precomputed_code;
-        } else {
-            $code = CodePreviewHttp::highlight($language_name, $code);
-        }
+        $code = CodePreviewHttp::format_and_highlight($language_name, $code);
+
+        CodePreviewCron::register_new_cron_for_block(get_the_ID());
     }
 }
 ?>
