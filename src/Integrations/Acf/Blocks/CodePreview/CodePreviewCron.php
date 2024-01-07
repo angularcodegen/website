@@ -70,12 +70,9 @@ class CodePreviewCron
             $language = $block['attrs']['data']['593D265269114F70B5E116DB58AF9BE5'];
             $code = $block['attrs']['data']['8E9300D01F9547E781F8F7DE5DCA0742'];
 
-            $formatted = CodePreviewHttp::format($language, $code);
-            $highlighted = CodePreviewHttp::highlight($language, $formatted);
+            $formatted_and_highlighted = CodePreviewHttp::format_and_highlight($language, $code);
 
-
-            $block['attrs']['data']['8E9300D01F9547E781F8F7DE5DCA0742'] = $formatted;
-            $block['attrs']['data']['E3CBDF3F888B1896576C840F04586E24'] = $highlighted;
+            $block['attrs']['data']['E3CBDF3F888B1896576C840F04586E24'] = $formatted_and_highlighted;
         }
 
     }
