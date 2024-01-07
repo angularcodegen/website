@@ -6,7 +6,7 @@ use CG\Core\AppLogger;
 
 class CodePreviewHttp
 {
-    public \Monolog\Logger $logger;
+    public static \Monolog\Logger $logger;
 
     public static function format_and_highlight($language, $code): string
     {
