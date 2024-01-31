@@ -1,6 +1,13 @@
 # Website theme
 
-Custom WordPress theme for [codegen.studio](https://codegen.studio) website
+Custom WordPress theme.
+
+## Deprecated
+
+All content has been rewritten to Astro.
+New repository you can find [here](https://github.com/addun/blog)
+
+---
 
 ## Development Setup
 
